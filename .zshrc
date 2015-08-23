@@ -83,10 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias stz="st ~/.zshrc"
+alias srcz="source ~/.zshrc"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
@@ -97,12 +96,5 @@ export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
 # export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/ghc/ghc/bin"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# export PATH="/Users/dktn/flowbox/ghcjs/.cabal-sandbox/bin:/Users/dktn/.cabal/bin:$PATH"
-export PATH="/Users/dktn/newbyteorder/ghc-js/.cabal-sandbox/bin:/Users/dktn/.cabal/bin:/Users/dktn/.local/bin:$PATH"
+export PATH="$HOME/newbyteorder/ghc-js/.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
 
-# export PATH="/Users/dktn/bin:$PATH"
-# export PATH="/Users/dktn/.cabal/bin:/Users/dktn/flowbox/ghcjs/.cabal-sandbox/bin:/Users/dktn/bin:$PATH"
-
-# export PATH="./.cabal-sandbox/bin:$PATH"
-
-# /Users/dktn/flowbox/cabal/.cabal-sandbox/bin:
