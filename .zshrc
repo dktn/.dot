@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 alias stz="st ~/.zshrc"
 alias srcz="source ~/.zshrc"
 
+setopt NO_NOMATCH
+
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
@@ -98,3 +100,5 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 export PATH="$HOME/newbyteorder/ghc-js/.cabal-sandbox/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
 
+
+source ~/.zshrc.local
