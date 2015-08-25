@@ -4,10 +4,14 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /Users/dktn/.gitignore_global
+	excludesfile = .gitignore_global
+[branch]
+    autosetuprebase = always
+[branch "branch-name"]
+    rebase = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
