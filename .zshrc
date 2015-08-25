@@ -89,7 +89,8 @@ alias srcz="source ~/.zshrc"
 
 setopt NO_NOMATCH
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+# move to .zshrc.local on OS X
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
 export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
