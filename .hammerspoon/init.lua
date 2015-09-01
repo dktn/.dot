@@ -1,5 +1,8 @@
-local mash  = {"ctrl", "cmd"}
-local mash2 = {"ctrl", "cmd", "alt"}
+
+local mash       = {"ctrl", "cmd"}
+local mash_app   = {"ctrl", "cmd"}
+local mash_shift = {"ctrl", "cmd", "shift"}
+local mash2      = {"ctrl", "cmd", "alt"}
 
 -- hotkey.bind(mash, "d", function()
 --   local win = window.focusedwindow()
@@ -20,8 +23,6 @@ local mash2 = {"ctrl", "cmd", "alt"}
 --   'fullscreen', 'main-vertical'
 -- })
 
-
-hs.hotkey.bind({"cmd"}, "e", hs.hints.windowHints)
 
 
 hs.window.animationDuration = 0
@@ -55,7 +56,7 @@ end
 
 
 hs.hotkey.bind(mash, 'n', hs.grid.pushWindowNextScreen)
-hs.hotkey.bind(mash, 'm', hs.grid.maximizeWindow)
+hs.hotkey.bind(mash, 'k', hs.grid.maximizeWindow)
 hs.hotkey.bind(mash, 'h', function() hs.grid.toggleShow() end)
 hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
 
@@ -63,6 +64,24 @@ hs.hotkey.bind(mash, 'l', hs.grid.resizeWindowThinner)
 hs.hotkey.bind(mash, 'u', hs.grid.resizeWindowShorter)
 hs.hotkey.bind(mash, 'y', hs.grid.resizeWindowTaller)
 hs.hotkey.bind(mash, ';', hs.grid.resizeWindowWider)
+
+-- Launch applications
+hs.hotkey.bind(mash_app, '1', function () hs.application.launchOrFocus("Sublime Text 2") end)
+hs.hotkey.bind(mash_app, '2', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash_app, '3', function () hs.application.launchOrFocus("Safari") end)
+hs.hotkey.bind(mash_app, '4', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash_app, '5', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash_app, '6', function () hs.application.launchOrFocus("Finder") end)
+
+
+
+-- slow
+hs.hotkey.bind(mash2, 'h', hs.hints.windowHints)
+-- slow
+hs.hotkey.bind(mash_shift, 'left',  function() hs.window.focusedWindow():focusWindowWest()  end)
+hs.hotkey.bind(mash_shift, 'right', function() hs.window.focusedWindow():focusWindowEast()  end)
+hs.hotkey.bind(mash_shift, 'up',    function() hs.window.focusedWindow():focusWindowNorth() end)
+hs.hotkey.bind(mash_shift, 'down',  function() hs.window.focusedWindow():focusWindowSouth() end)
 
 -- hs.hotkey.bind(mash, 'q', function() Action.MoveToUnit(0.0, 0.0, 0.5, 1.0)(focusedWin()) end)
 
