@@ -58,7 +58,7 @@ end
 hs.hotkey.bind(mash, 'n', hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(mash, 'k', hs.grid.maximizeWindow)
 hs.hotkey.bind(mash, 'h', function() hs.grid.toggleShow() end)
-hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
+-- hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
 
 hs.hotkey.bind(mash, 'l', hs.grid.resizeWindowThinner)
 hs.hotkey.bind(mash, 'u', hs.grid.resizeWindowShorter)
