@@ -12,7 +12,8 @@
     "overlay_scroll_bars": "enabled",
     "rulers":
     [
-        100
+        100,
+        120
     ],
     "scroll_past_end": true,
     "scroll_speed": 15,
