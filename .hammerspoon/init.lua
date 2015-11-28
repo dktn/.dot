@@ -27,7 +27,7 @@ local mash2      = {"ctrl", "cmd", "alt"}
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
-hs.grid.setGrid({12, 4})
+hs.grid.setGrid('12x4')
 hs.grid.HINTS = {
   {'f1', 'f2','f3', 'f4', 'f5', 'f6', 'f7', 'f8'},
   {'1', '2', '3', '4', '7', '8', '9', '0'},
