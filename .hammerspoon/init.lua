@@ -66,12 +66,12 @@ hs.hotkey.bind(mash, 'y', hs.grid.resizeWindowTaller)
 hs.hotkey.bind(mash, ';', hs.grid.resizeWindowWider)
 
 -- Launch applications
-hs.hotkey.bind(mash_app, '1', function () hs.application.launchOrFocus("Sublime Text 2") end)
 hs.hotkey.bind(mash_app, '`', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash_app, '1', function () hs.application.launchOrFocus("Sublime Text 2") end)
 hs.hotkey.bind(mash_app, '2', function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(mash_app, '3', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(mash_app, '4', function () hs.application.launchOrFocus("SourceTree") end)
-hs.hotkey.bind(mash_app, '5', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash_app, '3', function () hs.application.launchOrFocus("SourceTree") end)
+hs.hotkey.bind(mash_app, '4', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash_app, '5', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(mash_app, '6', function () hs.application.launchOrFocus("Finder") end)
 
 
