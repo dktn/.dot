@@ -99,7 +99,5 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 export PATH="$HOME/.cabal/bin:$HOME/.local/bin:/usr/texbin/:$PATH"
 
-export PATH="$HOME/newbyteorder/ghc-js/.cabal-sandbox/bin:$PATH"
-
 
 source ~/.zshrc.local

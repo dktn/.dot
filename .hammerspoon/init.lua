@@ -1,6 +1,5 @@
 
 local mash       = {"ctrl", "cmd"}
-local mash_app   = {"ctrl", "cmd"}
 local mash_shift = {"ctrl", "cmd", "shift"}
 local mash2      = {"ctrl", "cmd", "alt"}
 
@@ -55,29 +54,34 @@ local gridset = function(x, y, w, h)
 end
 
 
-hs.hotkey.bind(mash, 'n', hs.grid.pushWindowNextScreen)
-hs.hotkey.bind(mash, 'k', hs.grid.maximizeWindow)
-hs.hotkey.bind(mash, 'h', function() hs.grid.toggleShow() end)
+hs.hotkey.bind(mash2, 'z', hs.grid.pushWindowNextScreen)
+hs.hotkey.bind(mash2, 'a', hs.grid.maximizeWindow)
+hs.hotkey.bind(mash2, 'h', function() hs.grid.toggleShow() end)
 -- hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
 
-hs.hotkey.bind(mash, 'l', hs.grid.resizeWindowThinner)
-hs.hotkey.bind(mash, 'u', hs.grid.resizeWindowShorter)
-hs.hotkey.bind(mash, 'y', hs.grid.resizeWindowTaller)
-hs.hotkey.bind(mash, ';', hs.grid.resizeWindowWider)
+hs.hotkey.bind(mash2, 'l', hs.grid.resizeWindowThinner)
+hs.hotkey.bind(mash2, 'u', hs.grid.resizeWindowShorter)
+hs.hotkey.bind(mash2, 'y', hs.grid.resizeWindowTaller)
+hs.hotkey.bind(mash2, ';', hs.grid.resizeWindowWider)
+
+hs.hotkey.bind(mash2, 'q', gridset(0,  0, gm, gh))
+hs.hotkey.bind(mash2, 'w', gridset(0,  0, gb, gh))
+hs.hotkey.bind(mash2, 'f', gridset(gs, 0, gb,  gh))
+hs.hotkey.bind(mash2, 'p', gridset(gm, 0, gm, gh))
+hs.hotkey.bind(mash2, 'g', gridset(gb, 0, gs,  gh))
 
 -- Launch applications
-hs.hotkey.bind(mash_app, '`', function () hs.application.launchOrFocus("iterm") end)
-hs.hotkey.bind(mash_app, '1', function () hs.application.launchOrFocus("Sublime Text 2") end)
-hs.hotkey.bind(mash_app, '2', function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(mash_app, '3', function () hs.application.launchOrFocus("SourceTree") end)
-hs.hotkey.bind(mash_app, '4', function () hs.application.launchOrFocus("Slack") end)
-hs.hotkey.bind(mash_app, '5', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(mash_app, '6', function () hs.application.launchOrFocus("Finder") end)
-
-
+hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Sublime Text 2") end)
+hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
+hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("SourceTree") end)
+hs.hotkey.bind(mash, '5', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash, '6', function () hs.application.launchOrFocus("Finder") end)
 
 -- slow
-hs.hotkey.bind(mash2, 'h', hs.hints.windowHints)
+hs.hotkey.bind(mash, 'h', hs.hints.windowHints)
+
 -- slow
 hs.hotkey.bind(mash_shift, 'left',  function() hs.window.focusedWindow():focusWindowWest()  end)
 hs.hotkey.bind(mash_shift, 'right', function() hs.window.focusedWindow():focusWindowEast()  end)
@@ -86,11 +90,6 @@ hs.hotkey.bind(mash_shift, 'down',  function() hs.window.focusedWindow():focusWi
 
 -- hs.hotkey.bind(mash, 'q', function() Action.MoveToUnit(0.0, 0.0, 0.5, 1.0)(focusedWin()) end)
 
-hs.hotkey.bind(mash, 'q', gridset(0,  0, gm, gh))
-hs.hotkey.bind(mash, 'w', gridset(0,  0, gb, gh))
-hs.hotkey.bind(mash, 'f', gridset(gs, 0, gb,  gh))
-hs.hotkey.bind(mash, 'p', gridset(gm, 0, gm, gh))
-hs.hotkey.bind(mash, 'g', gridset(gb, 0, gs,  gh))
 
 
 

@@ -1,27 +1,26 @@
 {
-    "always_show_minimap_viewport": true,
-    "color_scheme": "Packages/Theme - Dktn/Dktn.tmTheme",
-    "draw_minimap_border": false,
-    "ensure_newline_at_eof_on_save": true,
-    "font_size": 15,
-    "highlight_line": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "overlay_scroll_bars": "enabled",
-    "rulers":
-    [
-        100,
-        120
-    ],
-    "scroll_past_end": true,
-    "scroll_speed": 15,
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "detect_indentation": false,
-    "use_tab_stops": true,
-    "theme": "Dktn.sublime-theme",
-    "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+	"always_show_minimap_viewport": true,
+	"color_scheme": "Packages/Theme - Dktn/Dktn.tmTheme",
+	"detect_indentation": false,
+	"draw_minimap_border": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_size": 15,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		100,
+		120
+	],
+	"scroll_past_end": true,
+	"scroll_speed": 15,
+	"tab_size": 4,
+	"theme": "Dktn.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true
 }
