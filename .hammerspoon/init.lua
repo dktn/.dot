@@ -1,28 +1,7 @@
-
-local mash       = {"ctrl", "cmd"}
-local mash_shift = {"ctrl", "cmd", "shift"}
-local mash2      = {"ctrl", "cmd", "alt"}
-
--- hotkey.bind(mash, "d", function()
---   local win = window.focusedwindow()
---   local f = win:frame()
---   f.x = f.x + 10
---   win:setframe(f)
--- end)
-
--- hotkey.bind(mash, "c", mjolnir.openconsole)
-
-
--- hs.hotkey.bind(mash2, "l",    function() tiling.cyclelayout() end)
--- hs.hotkey.bind(mash, "space", function() tiling.promote() end)
--- hs.otkey.bind(mash, "j",      function() tiling.cycle(1) end)
--- hhs.otkey.bind(mash, "k",     function() tiling.cycle(-1) end)
-
--- tiling.set('layouts', {
---   'fullscreen', 'main-vertical'
--- })
-
-
+local mash         = {"ctrl", "cmd"}
+local mashShift    = {"ctrl", "cmd", "shift"}
+local mashAlt      = {"ctrl", "cmd", "alt"}
+local mashAltShift = {"ctrl", "cmd", "alt", "shift"}
 
 hs.window.animationDuration = 0
 hs.grid.setMargins({0, 0})
@@ -41,7 +20,6 @@ local gm = gw / 2
 local gb = 7
 local gs = 5
 
-
 local gridset = function(x, y, w, h)
     return function()
         local curWindow = hs.window.focusedWindow()
@@ -53,22 +31,37 @@ local gridset = function(x, y, w, h)
     end
 end
 
-
-hs.hotkey.bind(mash2, 'z', hs.grid.pushWindowNextScreen)
-hs.hotkey.bind(mash2, 'a', hs.grid.maximizeWindow)
-hs.hotkey.bind(mash2, 'h', function() hs.grid.toggleShow() end)
+hs.hotkey.bind(mashAlt, 'z', hs.grid.pushWindowNextScreen)
+hs.hotkey.bind(mashAlt, 'h', function() hs.grid.toggleShow() end)
 -- hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
 
-hs.hotkey.bind(mash2, 'l', hs.grid.resizeWindowThinner)
-hs.hotkey.bind(mash2, 'u', hs.grid.resizeWindowShorter)
-hs.hotkey.bind(mash2, 'y', hs.grid.resizeWindowTaller)
-hs.hotkey.bind(mash2, ';', hs.grid.resizeWindowWider)
+local resizeMash = mashAltShift
+-- local resizeKeys = { 'u', 'i', 'o', 'p' } -- Qwerty
+-- local resizeKeys = { 'l', 'u', 'y', ';' } -- Colemak
+local resizeKeys = { 'left', 'up', 'down', 'right' } -- Arrows
+hs.hotkey.bind(resizeMash, resizeKeys[1], hs.grid.resizeWindowThinner)
+hs.hotkey.bind(resizeMash, resizeKeys[2], hs.grid.resizeWindowShorter)
+hs.hotkey.bind(resizeMash, resizeKeys[3], hs.grid.resizeWindowTaller)
+hs.hotkey.bind(resizeMash, resizeKeys[4], hs.grid.resizeWindowWider)
 
-hs.hotkey.bind(mash2, 'q', gridset(0,  0, gm, gh))
-hs.hotkey.bind(mash2, 'w', gridset(0,  0, gb, gh))
-hs.hotkey.bind(mash2, 'f', gridset(gs, 0, gb,  gh))
-hs.hotkey.bind(mash2, 'p', gridset(gm, 0, gm, gh))
-hs.hotkey.bind(mash2, 'g', gridset(gb, 0, gs,  gh))
+local moveMash = mashAlt
+-- local moveKeys = { 'j', 'k', 'l', ';' } -- Qwerty
+-- local moveKeys = { 'n', 'e', 'i', 'o' } -- Colemak
+local moveKeys = { 'left', 'up', 'down', 'right' } -- Arrows
+hs.hotkey.bind(moveMash, moveKeys[1], hs.grid.pushWindowLeft)
+hs.hotkey.bind(moveMash, moveKeys[2], hs.grid.pushWindowUp)
+hs.hotkey.bind(moveMash, moveKeys[3], hs.grid.pushWindowDown)
+hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
+
+local gridMash = mashAlt
+-- local gridKeys = { 'q', 'w', 'e', 'r', 't', 'a' } -- Qwerty
+local gridKeys = { 'q', 'w', 'f', 'p', 'g', 'a' } -- Colemak
+hs.hotkey.bind(gridMash, gridKeys[1], gridset(0,  0, gm, gh))
+hs.hotkey.bind(gridMash, gridKeys[2], gridset(0,  0, gb, gh))
+hs.hotkey.bind(gridMash, gridKeys[3], gridset(gs, 0, gb,  gh))
+hs.hotkey.bind(gridMash, gridKeys[4], gridset(gm, 0, gm, gh))
+hs.hotkey.bind(gridMash, gridKeys[5], gridset(gb, 0, gs,  gh))
+hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 
 -- Launch applications
 hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("iterm") end)
@@ -83,15 +76,12 @@ hs.hotkey.bind(mash, '6', function () hs.application.launchOrFocus("Finder") end
 hs.hotkey.bind(mash, 'h', hs.hints.windowHints)
 
 -- slow
-hs.hotkey.bind(mash_shift, 'left',  function() hs.window.focusedWindow():focusWindowWest()  end)
-hs.hotkey.bind(mash_shift, 'right', function() hs.window.focusedWindow():focusWindowEast()  end)
-hs.hotkey.bind(mash_shift, 'up',    function() hs.window.focusedWindow():focusWindowNorth() end)
-hs.hotkey.bind(mash_shift, 'down',  function() hs.window.focusedWindow():focusWindowSouth() end)
+hs.hotkey.bind(mashShift, 'left',  function() hs.window.focusedWindow():focusWindowWest()  end)
+hs.hotkey.bind(mashShift, 'right', function() hs.window.focusedWindow():focusWindowEast()  end)
+hs.hotkey.bind(mashShift, 'up',    function() hs.window.focusedWindow():focusWindowNorth() end)
+hs.hotkey.bind(mashShift, 'down',  function() hs.window.focusedWindow():focusWindowSouth() end)
 
 -- hs.hotkey.bind(mash, 'q', function() Action.MoveToUnit(0.0, 0.0, 0.5, 1.0)(focusedWin()) end)
-
-
-
 
 function reloadConfig(files)
     doReload = false
