@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 alias stz="st ~/.zshrc"
+alias stzl="st ~/.zshrc.local"
 alias srcz="source ~/.zshrc"
 
 setopt NO_NOMATCH
