@@ -64,13 +64,13 @@ hs.hotkey.bind(gridMash, gridKeys[5], gridset(gb, 0, gs,  gh))
 hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 
 -- Launch applications
-hs.hotkey.bind(mash, '5', function () hs.application.launchOrFocus("iterm") end)
-hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("Sublime Text 2") end)
-hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("SourceTree") end)
-hs.hotkey.bind(mash, '[', function () hs.application.launchOrFocus("Slack") end)
-hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("Finder") end)
+hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash, '[', function () hs.application.launchOrFocus("Sublime Text 2") end)
+hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Finder") end)
+hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
+hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("SourceTree") end)
+hs.hotkey.bind(mash, '5', function () hs.application.launchOrFocus("Slack") end)
 
 -- slow
 hs.hotkey.bind(mash, 'h', hs.hints.windowHints)
