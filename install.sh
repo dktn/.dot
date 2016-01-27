@@ -5,6 +5,7 @@ rm -f ~/.zshrc
 ln -s ~/.dot/.zshrc ~/.zshrc
 
 rm -f ~/zsh_custom/themes/agnoster-dktn.zsh-theme
+mkdir -p ~/zsh_custom/themes
 ln -s ~/.dot/agnoster-dktn.zsh-theme ~/zsh_custom/themes/agnoster-dktn.zsh-theme
 
 rm -f ~/.gitconfig ~/.gitignore_global
