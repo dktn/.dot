@@ -99,3 +99,16 @@ function reloadConfig(files)
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("Config loaded")
+
+local internalSpeakers = "Built-in Output"
+local externalSpeakers = "Scarlett 18i6 USB"
+
+function setAudioOutput(name)
+    local audioDevice = hs.audiodevice.findDeviceByName(name)
+    audioDevice:setDefaultOutputDevice()
+end
+
+-- Audio Devices
+local audioMash = mashAlt
+hs.hotkey.bind(audioMash, '1', function () setAudioOutput(internalSpeakers) end)
+hs.hotkey.bind(audioMash, '2', function () setAudioOutput(externalSpeakers) end)
