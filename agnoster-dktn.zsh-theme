@@ -26,7 +26,16 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR=''
+# SEGMENT_SEPARATOR=''
+# SEGMENT_SEPARATOR='λ'
+SEGMENT_SEPARATOR=''
+PROMPT_END=''
+
+# brights: 8 black, 9 red, 10 green, 11 yellow, 12 blue, 13 magenta, 14 cyan, 15 white
+HOST_CLR=8
+PATH_CLR='blue'
+CLEAN_CLR='green'
+DIRTY_CLR='yellow'
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -36,9 +45,9 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+    echo -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
   else
-    echo -n "%{$bg%}%{$fg%} "
+    echo -n "%{$bg%}%{$fg%}"
   fi
   CURRENT_BG=$1
   [[ -n $3 ]] && echo -n $3
@@ -47,7 +56,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    echo -n " %{%k%F{$CURRENT_BG}%}$PROMPT_END"
   else
     echo -n "%{%k%}"
   fi
@@ -61,7 +70,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    prompt_segment default $HOST_CLR "%(!.%{%F{yellow}%}.)$USER@%m "
   fi
 }
 
@@ -71,12 +80,13 @@ prompt_git() {
   repo_path=$(git rev-parse --git-dir 2>/dev/null)
 
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    prompt_segment default default " "
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment default $DIRTY_CLR
     else
-      prompt_segment green black
+      prompt_segment default $CLEAN_CLR
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -112,11 +122,11 @@ prompt_hg() {
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment yellow black
+        prompt_segment default $DIRTY_CLR
         st='±'
       else
         # if working copy is clean
-        prompt_segment green black
+        prompt_segment default $CLEAN_CLR
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
@@ -124,13 +134,13 @@ prompt_hg() {
       rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
       branch=$(hg id -b 2>/dev/null)
       if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
+        prompt_segment default red
         st='±'
       elif `hg st | grep -q "^(M|A)"`; then
-        prompt_segment yellow black
+        prompt_segment default $DIRTY_CLR
         st='±'
       else
-        prompt_segment green black
+        prompt_segment default $CLEAN_CLR
       fi
       echo -n "☿ $rev@$branch" $st
     fi
@@ -139,14 +149,14 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black '%~'
+  prompt_segment default $PATH_CLR '%~'
 }
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+    prompt_segment default $PATH_CLR "(`basename $virtualenv_path`)"
   fi
 }
 
@@ -161,7 +171,7 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment default black "$symbols"
 }
 
 ## Main prompt
@@ -176,4 +186,4 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
+PROMPT='%{%f%b%k%}$(build_prompt)'
