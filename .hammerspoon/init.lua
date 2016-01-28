@@ -65,6 +65,7 @@ hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 
 -- Launch applications
 hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("Finder") end)
+hs.hotkey.bind(mash, '-', function () hs.application.launchOrFocus("Twitter") end)
 
 hs.hotkey.bind(mash, ']', function () hs.application.launchOrFocus("iterm") end)
 hs.hotkey.bind(mash, '[', function () hs.application.launchOrFocus("Sublime Text 2") end)
