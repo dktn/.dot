@@ -16,9 +16,9 @@ hs.grid.HINTS = {
 
 local gw = hs.grid.GRIDWIDTH
 local gh = hs.grid.GRIDHEIGHT
-local gm = gw / 2
-local gb = 7
-local gs = 5
+local gws = 5
+local gwm = 6
+local gwb = 7
 
 local gridset = function(x, y, w, h)
     return function()
@@ -32,24 +32,8 @@ local gridset = function(x, y, w, h)
 end
 
 
-local display_laptop = "Color LCD"
--- local display_monitor = "Thunderbolt Display"
-local display_monitor = "G257HU"
-
-local internal_display = {
-    {"iTerm",               nil,          display_laptop,   hs.layout.maximized,    nil, nil},
-    {"Sublime Text 2",      nil,          display_laptop,   hs.layout.maximized,    nil, nil},
-}
-
-local dual_display = {
-    {"iTerm",               nil,          display_laptop,   hs.layout.maximized,    nil, nil},
-    {"Sublime Text 2",      nil,          display_monitor,  hs.layout.maximized,    nil, nil},
-}
-
-
 hs.hotkey.bind(mashAltShift, '1', function() hs.layout.apply(internal_display) end)
 hs.hotkey.bind(mashAltShift, '2', function() hs.layout.apply(dual_display) end)
-
 
 
 hs.hotkey.bind(mashAlt, 'z', hs.grid.pushWindowNextScreen)
@@ -77,11 +61,11 @@ hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
 local gridMash = mashAlt
 -- local gridKeys = { 'q', 'w', 'e', 'r', 't', 'a' } -- Qwerty
 local gridKeys = { 'q', 'w', 'f', 'p', 'g', 'a' } -- Colemak
-hs.hotkey.bind(gridMash, gridKeys[1], gridset(0,  0, gm, gh))
-hs.hotkey.bind(gridMash, gridKeys[2], gridset(0,  0, gb, gh))
-hs.hotkey.bind(gridMash, gridKeys[3], gridset(gs, 0, gb,  gh))
-hs.hotkey.bind(gridMash, gridKeys[4], gridset(gm, 0, gm, gh))
-hs.hotkey.bind(gridMash, gridKeys[5], gridset(gb, 0, gs,  gh))
+hs.hotkey.bind(gridMash, gridKeys[1], gridset(0,   0, gwm, gh))
+hs.hotkey.bind(gridMash, gridKeys[2], gridset(0,   0, gwb, gh))
+hs.hotkey.bind(gridMash, gridKeys[3], gridset(gws, 0, gwb, gh))
+hs.hotkey.bind(gridMash, gridKeys[4], gridset(gwm, 0, gwm, gh))
+hs.hotkey.bind(gridMash, gridKeys[5], gridset(gwb, 0, gws, gh))
 hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 
 -- Launch applications
@@ -152,8 +136,10 @@ function moveToSpace(win, space)
   local longSleepTime = 300000
   local mousePosition = hs.mouse.getAbsolutePosition()
 
-  clickPoint.x = clickPoint.x + clickPoint.w + 5
-  clickPoint.y = clickPoint.y + clickPoint.h / 2
+  -- clickPoint.x = clickPoint.x + clickPoint.w + 5
+  -- clickPoint.y = clickPoint.y + clickPoint.h / 2
+  clickPoint.x = clickPoint.x + clickPoint.w + 4
+  clickPoint.y = clickPoint.y
 
   hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, clickPoint):post()
   hs.timer.usleep(sleepTime)
@@ -164,9 +150,56 @@ function moveToSpace(win, space)
 end
 
 
+local displayLaptop = "Color LCD"
+local displayMonitor = "G257HU"
+-- local displayMonitor = "Thunderbolt Display"
+
+local gridMax        = {x=0,   y=0, w=gw,  h=gh}
+local gridLeftBig    = {x=0,   y=0, w=gwb, h=gh}
+local gridRightSmall = {x=gwb, y=0, w=gws, h=gh}
+
+local internalDisplay = {
+    {"iTerm",               0, displayLaptop,  gridMax},
+    {"Sublime Text 2",      1, displayLaptop, gridMax},
+    {"Safari",              2, displayLaptop, gridLeftBig},
+    {"Google Chrome",       3, displayLaptop, gridLeftBig},
+    {"SourceTree",          4, displayLaptop, gridLeftBig},
+    {"Slack",               4, displayLaptop, gridRightSmall}
+}
+
+local dualDisplay = {
+    {"iTerm",               0, displayLaptop,  gridMax},
+    {"Sublime Text 2",      1, displayMonitor, gridMax},
+    {"Safari",              2, displayMonitor, gridLeftBig},
+    {"Google Chrome",       3, displayMonitor, gridLeftBig},
+    {"SourceTree",          4, displayMonitor, gridLeftBig},
+    {"Slack",               4, displayMonitor, gridRightSmall}
+}
 
 function setupWindows()
-    moveToSpace(hs.window.frontmostWindow(), 3)
+    local sleepTime = 100000
+    for i, v in ipairs(dualDisplay) do
+        local appName = v[1]
+        local space   = v[2]
+        local screen  = v[3]
+        local grid    = v[4]
+        print(i, appName, space, screen, grid)
+        hs.application.launchOrFocus(appName)
+        hs.timer.usleep(sleepTime)
+        local app = hs.application.find(appName)
+        if app ~= nil then
+            print("app ", app)
+            local window = app:mainWindow()
+            print("window ", window)
+            if space ~= 0 then
+                moveToSpace(window, space)
+                print("space ", space)
+                hs.timer.usleep(sleepTime)
+            end
+            hs.grid.set(window, grid, screen)
+            hs.timer.usleep(sleepTime)
+        end
+    end
 end
 
-hs.hotkey.bind(mashAlt, 't', function () setupWindows() end)
+hs.hotkey.bind(mashAltShift, 'r', function () setupWindows() end)
