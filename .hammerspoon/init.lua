@@ -178,22 +178,26 @@ local dualDisplay = {
 
 function setupWindows()
     local sleepTime = 100000
-    for i, v in ipairs(dualDisplay) do
+    screens = #hs.screen.allScreens()
+    print("Screens ", screens)
+    local display = screens == 1 and internalDisplay or dualDisplay
+    -- print (display[2][3])
+    for i, v in ipairs(display) do
         local appName = v[1]
         local space   = v[2]
         local screen  = v[3]
         local grid    = v[4]
-        print(i, appName, space, screen, grid)
+        -- print(i, appName, space, screen, grid)
         hs.application.launchOrFocus(appName)
         hs.timer.usleep(sleepTime)
         local app = hs.application.find(appName)
         if app ~= nil then
-            print("app ", app)
+            -- print("app ", app)
             local window = app:mainWindow()
-            print("window ", window)
+            -- print("window ", window)
             if space ~= 0 then
                 moveToSpace(window, space)
-                print("space ", space)
+                -- print("space ", space)
                 hs.timer.usleep(sleepTime)
             end
             hs.grid.set(window, grid, screen)
