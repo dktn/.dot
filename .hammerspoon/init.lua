@@ -138,8 +138,8 @@ function moveToSpace(win, space)
 
   -- clickPoint.x = clickPoint.x + clickPoint.w + 5
   -- clickPoint.y = clickPoint.y + clickPoint.h / 2
-  clickPoint.x = clickPoint.x + clickPoint.w + 4
-  clickPoint.y = clickPoint.y
+  clickPoint.x = clickPoint.x + clickPoint.w + 10
+  clickPoint.y = clickPoint.y - 2
 
   hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, clickPoint):post()
   hs.timer.usleep(sleepTime)
@@ -160,24 +160,29 @@ local gridRightSmall = {x=gwb, y=0, w=gws, h=gh}
 
 local internalDisplay = {
     {"iTerm",               0, displayLaptop,  gridMax},
-    {"Sublime Text 2",      1, displayLaptop, gridMax},
-    {"Safari",              2, displayLaptop, gridLeftBig},
-    {"Google Chrome",       3, displayLaptop, gridLeftBig},
-    {"SourceTree",          4, displayLaptop, gridLeftBig},
-    {"Slack",               4, displayLaptop, gridRightSmall}
+    {"Sublime Text 2",      1, displayLaptop,  gridMax},
+    {"Safari",              2, displayLaptop,  gridLeftBig,    "gmail"},
+    {"Safari",              2, displayLaptop,  gridRightSmall, "docs"},
+    {"Google Chrome",       3, displayLaptop,  gridLeftBig},
+    {"SourceTree",          4, displayLaptop,  gridLeftBig},
+    {"Slack",               4, displayLaptop,  gridRightSmall}
 }
 
 local dualDisplay = {
     {"iTerm",               0, displayLaptop,  gridMax},
     {"Sublime Text 2",      1, displayMonitor, gridMax},
-    {"Safari",              2, displayMonitor, gridLeftBig},
+    {"Safari",              2, displayMonitor, gridLeftBig,    "gmail"},
+    {"Safari",              2, displayMonitor, gridRightSmall, "docs"},
     {"Google Chrome",       3, displayMonitor, gridLeftBig},
     {"SourceTree",          4, displayMonitor, gridLeftBig},
     {"Slack",               4, displayMonitor, gridRightSmall}
 }
 
+local focusOn = "Sublime Text 2"
+
 function setupWindows()
-    local sleepTime = 100000
+    local sleepTime     =  100000
+    local sleepTimeLong =  500000
     screens = #hs.screen.allScreens()
     print("Screens ", screens)
     local display = screens == 1 and internalDisplay or dualDisplay
@@ -187,23 +192,27 @@ function setupWindows()
         local space   = v[2]
         local screen  = v[3]
         local grid    = v[4]
+        local winName = v[5]
         -- print(i, appName, space, screen, grid)
         hs.application.launchOrFocus(appName)
         hs.timer.usleep(sleepTime)
         local app = hs.application.find(appName)
         if app ~= nil then
             -- print("app ", app)
-            local window = app:mainWindow()
+            local window = winName == nil and app:mainWindow() or app:findWindow(winName)
             -- print("window ", window)
-            if space ~= 0 then
-                moveToSpace(window, space)
-                -- print("space ", space)
+            if window ~= nil then
+                if space ~= 0 then
+                    moveToSpace(window, space)
+                    -- print("space ", space)
+                    hs.timer.usleep(sleepTimeLong)
+                end
+                hs.grid.set(window, grid, screen)
                 hs.timer.usleep(sleepTime)
             end
-            hs.grid.set(window, grid, screen)
-            hs.timer.usleep(sleepTime)
         end
     end
+    hs.application.launchOrFocus(focusOn)
 end
 
 hs.hotkey.bind(mashAltShift, 'r', function () setupWindows() end)
