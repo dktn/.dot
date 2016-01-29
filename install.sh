@@ -1,21 +1,46 @@
-rm -f ~/.tmux.conf
-ln -s ~/.dot/.tmux.conf ~/.tmux.conf
+#!/bin/bash
 
-rm -f ~/.zshrc
-ln -s ~/.dot/.zshrc ~/.zshrc
+export DOT_DIR="$HOME/.dot"
+export DOT_ST="sublime-text-2"
 
-rm -f ~/.ghci
-ln -s ~/.dot/.ghci ~/.ghci
+rm -f $HOME/.tmux.conf
+ln -s $DOT_DIR/.tmux.conf $HOME/.tmux.conf
 
-rm -f ~/zsh_custom/themes/agnoster-dktn.zsh-theme
-mkdir -p ~/zsh_custom/themes
-ln -s ~/.dot/agnoster-dktn.zsh-theme ~/zsh_custom/themes/agnoster-dktn.zsh-theme
+rm -f $HOME/.zshrc
+ln -s $DOT_DIR/.zshrc $HOME/.zshrc
 
-rm -f ~/.gitconfig ~/.gitignore_global
-ln -s ~/.dot/.gitconfig ~/.gitconfig
-ln -s ~/.dot/.gitignore_global ~/.gitignore_global
+rm -f $HOME/.ghci
+ln -s $DOT_DIR/.ghci $HOME/.ghci
 
-rm -rf ~/.hammerspoon
-ln -s ~/.dot/.hammerspoon ~/.hammerspoon
+rm -f $HOME/zsh_custom/themes/agnoster-dktn.zsh-theme
+mkdir -p $HOME/zsh_custom/themes
+ln -s $DOT_DIR/agnoster-dktn.zsh-theme $HOME/zsh_custom/themes/agnoster-dktn.zsh-theme
 
-touch ~/.zshrc.local
+rm -f $HOME/.gitconfig $HOME/.gitignore_global
+ln -s $DOT_DIR/.gitconfig $HOME/.gitconfig
+ln -s $DOT_DIR/.gitignore_global $HOME/.gitignore_global
+
+rm -rf $HOME/.hammerspoon
+ln -s $DOT_DIR/.hammerspoon $HOME/.hammerspoon
+
+# Sublime Text 2
+export ST_USER_DIR="$HOME/Library/Application Support/Sublime Text 2/Packages/User"
+export ST_PREFERENCES="Preferences.sublime-settings"
+export ST_KEYMAP="Default (OSX).sublime-keymap"
+export ST_STACK="Stack.sublime-build"
+export ST_SOLAR="SolarizedToggle.sublime-settings"
+
+rm -f "$ST_USER_DIR/$ST_PREFERENCES"
+ln -s "$DOT_DIR/$DOT_ST/$ST_PREFERENCES" "$ST_USER_DIR/$ST_PREFERENCES"
+
+rm -f "$ST_USER_DIR/$ST_KEYMAP"
+ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP" "$ST_USER_DIR/$ST_KEYMAP"
+
+rm -f "$ST_USER_DIR/$ST_STACK"
+ln -s "$DOT_DIR/$DOT_ST/$ST_STACK" "$ST_USER_DIR/$ST_STACK"
+
+rm -f "$ST_USER_DIR/$ST_SOLAR"
+ln -s "$DOT_DIR/$DOT_ST/$ST_SOLAR" "$ST_USER_DIR/$ST_SOLAR"
+
+
+touch $HOME/.zshrc.local

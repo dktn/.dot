@@ -31,6 +31,27 @@ local gridset = function(x, y, w, h)
     end
 end
 
+
+local display_laptop = "Color LCD"
+-- local display_monitor = "Thunderbolt Display"
+local display_monitor = "G257HU"
+
+local internal_display = {
+    {"iTerm",               nil,          display_laptop,   hs.layout.maximized,    nil, nil},
+    {"Sublime Text 2",      nil,          display_laptop,   hs.layout.maximized,    nil, nil},
+}
+
+local dual_display = {
+    {"iTerm",               nil,          display_laptop,   hs.layout.maximized,    nil, nil},
+    {"Sublime Text 2",      nil,          display_monitor,  hs.layout.maximized,    nil, nil},
+}
+
+
+hs.hotkey.bind(mashAltShift, '1', function() hs.layout.apply(internal_display) end)
+hs.hotkey.bind(mashAltShift, '2', function() hs.layout.apply(dual_display) end)
+
+
+
 hs.hotkey.bind(mashAlt, 'z', hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(mashAlt, 'h', function() hs.grid.toggleShow() end)
 -- hs.hotkey.bind(mash, 'i', function() hs.hints.appHints(appfinder.appFromName("iTerm")) end)
@@ -117,3 +138,35 @@ end
 local audioMash = mashAlt
 hs.hotkey.bind(audioMash, '1', function () setAudioOutput(internalSpeakers) end)
 hs.hotkey.bind(audioMash, '2', function () setAudioOutput(externalSpeakers) end)
+
+
+function findWindowsByApplicationTitle(title)
+    return hs.fnutils.filter(hs.window.allWindows(), function(window)
+        return string.match(window:application():title(), title) ~= nil
+    end)
+end
+
+function moveToSpace(win, space)
+  local clickPoint    = win:zoomButtonRect()
+  local sleepTime     = 1000
+  local longSleepTime = 300000
+  local mousePosition = hs.mouse.getAbsolutePosition()
+
+  clickPoint.x = clickPoint.x + clickPoint.w + 5
+  clickPoint.y = clickPoint.y + clickPoint.h / 2
+
+  hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, clickPoint):post()
+  hs.timer.usleep(sleepTime)
+  hs.eventtap.keyStroke({ "ctrl" }, space)
+  hs.timer.usleep(longSleepTime)
+  hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseUp, clickPoint):post()
+  hs.mouse.setAbsolutePosition(mousePosition)
+end
+
+
+
+function setupWindows()
+    moveToSpace(hs.window.frontmostWindow(), 3)
+end
+
+hs.hotkey.bind(mashAlt, 't', function () setupWindows() end)
