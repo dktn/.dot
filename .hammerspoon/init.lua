@@ -183,6 +183,7 @@ local focusOn = "Sublime Text 2"
 function setupWindows()
     local sleepTime     =  100000
     local sleepTimeLong =  500000
+    local focusedApp    = hs.application.frontmostApplication():name()
     screens = #hs.screen.allScreens()
     print("Screens ", screens)
     local display = screens == 1 and internalDisplay or dualDisplay
@@ -212,7 +213,7 @@ function setupWindows()
             end
         end
     end
-    hs.application.launchOrFocus(focusOn)
+    hs.application.launchOrFocus(focusedApp)
 end
 
 hs.hotkey.bind(mashAltShift, 'r', function () setupWindows() end)
