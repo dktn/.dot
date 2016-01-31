@@ -1,4 +1,4 @@
 {
-    "cmd": ["stack", "build", "--copy-bins", "--jobs", "4", "--ghc-options=\"-dshow-passes\""],
+    "cmd": ["stack", "build", "--copy-bins", "--ghc-options=\"-dshow-passes\""],
     "selector": "source.haskell"
 }
