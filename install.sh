@@ -1,7 +1,18 @@
 #!/bin/bash
 
 export DOT_DIR="$HOME/.dot"
-export DOT_ST="sublime-text"
+
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+    export ST_DIR=".config/sublime-text-3"
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    export ST_DIR="Library/Application Support/Sublime Text 3"
+else
+    echo "Not recognized system"
+    exit -1
+fi
+
+echo "Creating links (tmux, zshrc, ghci, zsh_custom, gitconfig, hammerspoon)"
 
 rm -f $HOME/.tmux.conf
 ln -s $DOT_DIR/.tmux.conf $HOME/.tmux.conf
@@ -23,18 +34,25 @@ ln -s $DOT_DIR/.gitignore_global $HOME/.gitignore_global
 rm -rf $HOME/.hammerspoon
 ln -s $DOT_DIR/.hammerspoon $HOME/.hammerspoon
 
-# Sublime Text 2
-export ST_USER_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+
+export DOT_ST="sublime-text"
+export ST_USER_DIR="$HOME/$ST_DIR/Packages/User"
 export ST_PREFERENCES="Preferences.sublime-settings"
-export ST_KEYMAP="Default (OSX).sublime-keymap"
+export ST_KEYMAP_OSX="Default (OSX).sublime-keymap"
+export ST_KEYMAP_LINUX="Default (Linux).sublime-keymap"
 export ST_STACK="Stack.sublime-build"
 export ST_SOLAR="SolarizedToggle.sublime-settings"
+
+echo "Creating Sublime Text links in $ST_USER_DIR"
 
 rm -f "$ST_USER_DIR/$ST_PREFERENCES"
 ln -s "$DOT_DIR/$DOT_ST/$ST_PREFERENCES" "$ST_USER_DIR/$ST_PREFERENCES"
 
-rm -f "$ST_USER_DIR/$ST_KEYMAP"
-ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP" "$ST_USER_DIR/$ST_KEYMAP"
+rm -f "$ST_USER_DIR/$ST_KEYMAP_OSX"
+ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP_OSX" "$ST_USER_DIR/$ST_KEYMAP_OSX"
+
+rm -f "$ST_USER_DIR/$ST_KEYMAP_LINUX"
+ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP_LINUX" "$ST_USER_DIR/$ST_KEYMAP_LINUX"
 
 rm -f "$ST_USER_DIR/$ST_STACK"
 ln -s "$DOT_DIR/$DOT_ST/$ST_STACK" "$ST_USER_DIR/$ST_STACK"
@@ -44,3 +62,5 @@ ln -s "$DOT_DIR/$DOT_ST/$ST_SOLAR" "$ST_USER_DIR/$ST_SOLAR"
 
 
 touch $HOME/.zshrc.local
+
+echo "Done"
