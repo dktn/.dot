@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export DOT_DIR="$HOME/.dot"
-export DOT_ST="sublime-text-2"
+export DOT_ST="sublime-text"
 
 rm -f $HOME/.tmux.conf
 ln -s $DOT_DIR/.tmux.conf $HOME/.tmux.conf
@@ -24,7 +24,7 @@ rm -rf $HOME/.hammerspoon
 ln -s $DOT_DIR/.hammerspoon $HOME/.hammerspoon
 
 # Sublime Text 2
-export ST_USER_DIR="$HOME/Library/Application Support/Sublime Text 2/Packages/User"
+export ST_USER_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 export ST_PREFERENCES="Preferences.sublime-settings"
 export ST_KEYMAP="Default (OSX).sublime-keymap"
 export ST_STACK="Stack.sublime-build"
