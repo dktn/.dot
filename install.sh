@@ -47,6 +47,7 @@ export ST_KEYMAP_OSX="Default (OSX).sublime-keymap"
 export ST_KEYMAP_LINUX="Default (Linux).sublime-keymap"
 export ST_STACK="Stack.sublime-build"
 export ST_SOLAR="SolarizedToggle.sublime-settings"
+export ST_HASKELL="UberHaskell.tmLanguage"
 
 echo "Creating Sublime Text links in $ST_USER_DIR"
 
@@ -67,6 +68,9 @@ ln -s "$DOT_DIR/$DOT_ST/$ST_STACK" "$ST_USER_DIR/$ST_STACK"
 
 rm -f "$ST_USER_DIR/$ST_SOLAR"
 ln -s "$DOT_DIR/$DOT_ST/$ST_SOLAR" "$ST_USER_DIR/$ST_SOLAR"
+
+rm -f "$ST_USER_DIR/$ST_HASKELL"
+ln -s "$DOT_DIR/$DOT_ST/$ST_HASKELL" "$ST_USER_DIR/$ST_HASKELL"
 
 
 touch $HOME/.zshrc.local
