@@ -72,10 +72,10 @@ hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("Finder") end)
 hs.hotkey.bind(mash, '-', function () hs.application.launchOrFocus("Twitter") end)
 
-hs.hotkey.bind(mash, ']', function () hs.application.launchOrFocus("iterm") end)
-hs.hotkey.bind(mash, '[', function () hs.application.launchOrFocus("Sublime Text 2") end)
+hs.hotkey.bind(mash, '[', function () hs.application.launchOrFocus("iterm") end)
+hs.hotkey.bind(mash, ']', function () hs.application.launchOrFocus("Dash") end)
 
-hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Dash") end)
+hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Sublime Text") end)
 hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
 hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("SourceTree") end)
@@ -160,7 +160,7 @@ local gridRightSmall = {x=gwb, y=0, w=gws, h=gh}
 
 local internalDisplay = {
     {"iTerm",               0, displayLaptop,  gridMax},
-    {"Sublime Text 2",      1, displayLaptop,  gridMax},
+    {"Sublime Text",        1, displayLaptop,  gridMax},
     {"Safari",              2, displayLaptop,  gridLeftBig,    "gmail"},
     {"Safari",              2, displayLaptop,  gridRightSmall, "docs"},
     {"Google Chrome",       3, displayLaptop,  gridLeftBig},
@@ -170,15 +170,13 @@ local internalDisplay = {
 
 local dualDisplay = {
     {"iTerm",               0, displayLaptop,  gridMax},
-    {"Sublime Text 2",      1, displayMonitor, gridMax},
+    {"Sublime Text",        1, displayMonitor, gridMax},
     {"Safari",              2, displayMonitor, gridLeftBig,    "gmail"},
     {"Safari",              2, displayMonitor, gridRightSmall, "docs"},
     {"Google Chrome",       3, displayMonitor, gridLeftBig},
     {"SourceTree",          4, displayMonitor, gridLeftBig},
     {"Slack",               4, displayMonitor, gridRightSmall}
 }
-
-local focusOn = "Sublime Text 2"
 
 function setupWindows()
     local sleepTime     =  100000

@@ -16,6 +16,8 @@ echo "Creating links (tmux, zshrc, ghci, zsh_custom, gitconfig, hammerspoon)"
 
 rm -f $HOME/.tmux.conf
 ln -s $DOT_DIR/.tmux.conf $HOME/.tmux.conf
+rm -f $HOME/.tmux-osx.conf
+ln -s $DOT_DIR/.tmux-osx.conf $HOME/.tmux-osx.conf
 
 rm -f $HOME/.zshrc
 ln -s $DOT_DIR/.zshrc $HOME/.zshrc
