@@ -12,7 +12,7 @@ else
     exit -1
 fi
 
-echo "Creating links (tmux, zshrc, ghci, zsh_custom, gitconfig, hammerspoon)"
+echo "Creating links (tmux, zshrc, ghci, zsh_custom, gitconfig, hammerspoon, stylish-haskell)"
 
 rm -f $HOME/.tmux.conf
 ln -s $DOT_DIR/.tmux.conf $HOME/.tmux.conf
@@ -36,6 +36,8 @@ ln -s $DOT_DIR/.gitignore_global $HOME/.gitignore_global
 rm -rf $HOME/.hammerspoon
 ln -s $DOT_DIR/.hammerspoon $HOME/.hammerspoon
 
+rm -rf $HOME/.stylish-haskell.yaml
+ln -s $DOT_DIR/.stylish-haskell.yaml $HOME/.stylish-haskell.yaml
 
 export DOT_ST="sublime-text"
 export ST_USER_DIR="$HOME/$ST_DIR/Packages/User"
