@@ -40,6 +40,7 @@ ln -s $DOT_DIR/.hammerspoon $HOME/.hammerspoon
 export DOT_ST="sublime-text"
 export ST_USER_DIR="$HOME/$ST_DIR/Packages/User"
 export ST_PREFERENCES="Preferences.sublime-settings"
+export ST_KEYMAP="Default.sublime-keymap"
 export ST_KEYMAP_OSX="Default (OSX).sublime-keymap"
 export ST_KEYMAP_LINUX="Default (Linux).sublime-keymap"
 export ST_STACK="Stack.sublime-build"
@@ -49,6 +50,9 @@ echo "Creating Sublime Text links in $ST_USER_DIR"
 
 rm -f "$ST_USER_DIR/$ST_PREFERENCES"
 ln -s "$DOT_DIR/$DOT_ST/$ST_PREFERENCES" "$ST_USER_DIR/$ST_PREFERENCES"
+
+rm -f "$ST_USER_DIR/$ST_KEYMAP"
+ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP" "$ST_USER_DIR/$ST_KEYMAP"
 
 rm -f "$ST_USER_DIR/$ST_KEYMAP_OSX"
 ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP_OSX" "$ST_USER_DIR/$ST_KEYMAP_OSX"
