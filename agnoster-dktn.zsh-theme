@@ -26,10 +26,9 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-# SEGMENT_SEPARATOR=''
-# SEGMENT_SEPARATOR='λ'
 SEGMENT_SEPARATOR=''
-PROMPT_END=''
+# PROMPT_END='λ▶▷○▧✡'
+PROMPT_END='▣ '
 
 # brights: 8 black, 9 red, 10 green, 11 yellow, 12 blue, 13 magenta, 14 cyan, 15 white
 HOST_CLR=8
@@ -55,8 +54,9 @@ prompt_segment() {
 
 # End the prompt, closing any open segments
 prompt_end() {
+  fg="%F{$HOST_CLR}"
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$PROMPT_END"
+    echo -n " %{%k%F{$CURRENT_BG}%}%{$fg%}$PROMPT_END"
   else
     echo -n "%{%k%}"
   fi
