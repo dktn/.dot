@@ -46,6 +46,7 @@ export ST_PREFERENCES="Preferences.sublime-settings"
 export ST_KEYMAP="Default.sublime-keymap"
 export ST_KEYMAP_OSX="Default (OSX).sublime-keymap"
 export ST_KEYMAP_LINUX="Default (Linux).sublime-keymap"
+export ST_DOT="Dot.sublime-snippet"
 export ST_STACK="Stack.sublime-build"
 export ST_SOLAR="SolarizedToggle.sublime-settings"
 export ST_SUBLIME_HASKELL="SublimeHaskell.sublime-settings"
@@ -65,6 +66,9 @@ ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP_OSX" "$ST_USER_DIR/$ST_KEYMAP_OSX"
 
 rm -f "$ST_USER_DIR/$ST_KEYMAP_LINUX"
 ln -s "$DOT_DIR/$DOT_ST/$ST_KEYMAP_LINUX" "$ST_USER_DIR/$ST_KEYMAP_LINUX"
+
+rm -f "$ST_USER_DIR/$ST_DOT"
+ln -s "$DOT_DIR/$DOT_ST/$ST_DOT" "$ST_USER_DIR/$ST_DOT"
 
 rm -f "$ST_USER_DIR/$ST_STACK"
 ln -s "$DOT_DIR/$DOT_ST/$ST_STACK" "$ST_USER_DIR/$ST_STACK"
