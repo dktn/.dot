@@ -77,10 +77,11 @@ hs.hotkey.bind(mash, '-', function () hs.application.launchOrFocus("Dash") end)
 
 hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Sublime Text") end)
 hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("Slack") end)
-hs.hotkey.bind(mash, '5', function () hs.application.launchOrFocus("Evernote") end)
+hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Markdown PLus") end)
+hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash, '5', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(mash, '6', function () hs.application.launchOrFocus("Skim") end)
+hs.hotkey.bind(mash, '7', function () hs.application.launchOrFocus("Evernote") end)
 
 hs.hotkey.bind(mashAlt, 'c', function() hs.toggleConsole() end)
 
