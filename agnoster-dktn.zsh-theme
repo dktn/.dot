@@ -28,7 +28,7 @@
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
 # PROMPT_END=' λ ▶ ▷ ○ ▧ ✡ ▣ ✪ ☯ ◇ → ↦ ↪ ⇉ ⇒ ⇨ ⇰ ❯ ➠ ➣ ➤ ➜ ➞ ➽ ➾ ₹ 元 » × ℍ ⅀ ☞ '
-PROMPT_END='⇨ '
+PROMPT_END='► '
 
 # brights: 8 black, 9 red, 10 green, 11 yellow, 12 blue, 13 magenta, 14 cyan, 15 white
 HOST_CLR=8
