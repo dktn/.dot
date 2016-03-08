@@ -94,15 +94,6 @@ alias srcz="source ~/.zshrc"
 
 setopt NO_NOMATCH
 
-
-export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
-export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
-
-
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/ghc/ghc/bin"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-export PATH="$HOME/.cabal/bin:$HOME/.local/bin:/usr/texbin/:$PATH"
-
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source ~/.zshrc.local

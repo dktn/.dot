@@ -163,7 +163,7 @@ local internalDisplay = {
     {"SourceTree",          1, displayLaptop,  gridMax},
     {"Sublime Text",        1, displayLaptop,  gridMax},
     {"Safari",              2, displayLaptop,  gridLeftBig,    "gmail"},
-    {"Safari",              2, displayLaptop,  gridRightSmall, "docs"},
+    {"Safari",              2, displayLaptop,  gridRightSmall, "littlegolem"},
     {"Google Chrome",       3, displayLaptop,  gridLeftBig},
     {"Slack",               3, displayLaptop,  gridRightSmall}
 }
@@ -173,7 +173,7 @@ local dualDisplay = {
     {"SourceTree",          1, displayLaptop,  gridMax},
     {"Sublime Text",        1, displayMonitor, gridMax},
     {"Safari",              2, displayMonitor, gridLeftBig,    "gmail"},
-    {"Safari",              2, displayMonitor, gridRightSmall, "docs"},
+    {"Safari",              2, displayMonitor, gridRightSmall, "littlegolem"},
     {"Google Chrome",       3, displayMonitor, gridLeftBig},
     {"Slack",               3, displayMonitor, gridRightSmall}
 }
