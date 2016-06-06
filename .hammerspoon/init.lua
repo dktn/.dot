@@ -83,12 +83,12 @@ hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Textual 5") end)
 
 hs.hotkey.bind(mash, 'k', function () hs.application.launchOrFocus("Skim") end)
-hs.hotkey.bind(mash, 'm', function () hs.application.launchOrFocus("Markdown PLus") end)
+hs.hotkey.bind(mash, 'p', function () hs.application.launchOrFocus("Markdown PLus") end)
 hs.hotkey.bind(mash, 'n', function () hs.application.launchOrFocus("Evernote") end)
 
-hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("Firefox") end)
 hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
 hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("Firefox") end)
 
 hs.hotkey.bind(mashAlt, 'c', function() hs.toggleConsole() end)
 
