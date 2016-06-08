@@ -76,9 +76,9 @@ hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Atom") end)
 hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Sublime Text") end)
 hs.hotkey.bind(mash, 'w', function () hs.application.launchOrFocus("Twitter") end)
 hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("iterm") end)
-hs.hotkey.bind(mash, 'd', function () hs.application.launchOrFocus("Dash") end)
+hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("Dash") end)
 
-hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("SourceTree") end)
+hs.hotkey.bind(mash, 'e', function () hs.application.launchOrFocus("SourceTree") end)
 hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
 hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Textual 5") end)
 
