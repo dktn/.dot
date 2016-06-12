@@ -69,26 +69,39 @@ hs.hotkey.bind(gridMash, gridKeys[5], gridset(gwb, 0, gws, gh))
 hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 
 -- Launch applications
-hs.hotkey.bind(mash, '`', function () hs.application.launchOrFocus("Finder") end)
-hs.hotkey.bind(mash, ',', function () hs.application.launchOrFocus("System Preferences") end)
 
-hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Atom") end)
-hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Sublime Text") end)
-hs.hotkey.bind(mash, 'w', function () hs.application.launchOrFocus("Twitter") end)
-hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("iterm") end)
-hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("Dash") end)
-
-hs.hotkey.bind(mash, 'e', function () hs.application.launchOrFocus("SourceTree") end)
-hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
-hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Textual 5") end)
-
-hs.hotkey.bind(mash, 'k', function () hs.application.launchOrFocus("Skim") end)
+-- hs.hotkey.bind(mash, 'q', function () hs.application.launchOrFocus("") end)
+-- hs.hotkey.bind(mash, 'w', function () hs.application.launchOrFocus("") end)
 hs.hotkey.bind(mash, 'p', function () hs.application.launchOrFocus("Markdown PLus") end)
-hs.hotkey.bind(mash, 'n', function () hs.application.launchOrFocus("Evernote") end)
+hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("Skim") end)
 
-hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(mash, '3', function () hs.application.launchOrFocus("Google Chrome") end)
-hs.hotkey.bind(mash, '4', function () hs.application.launchOrFocus("Firefox") end)
+hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Dash") end)
+hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("Atom") end)
+hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Sublime Text") end)
+hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("iterm") end)
+
+hs.hotkey.bind(mash, 'z', function () hs.application.launchOrFocus("Finder") end)
+-- hs.hotkey.bind(mash, 'x', function () hs.application.launchOrFocus("") end)
+hs.hotkey.bind(mash, 'c', function () hs.application.launchOrFocus("Safari") end)
+hs.hotkey.bind(mash, 'v', function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(mash, 'b', function () hs.application.launchOrFocus("SourceTree") end)
+
+hs.hotkey.bind(mash, 'j', function () hs.application.launchOrFocus("Firefox") end)
+hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
+-- hs.hotkey.bind(mash, 'u', function () hs.application.launchOrFocus("") end)
+-- hs.hotkey.bind(mash, 'y', function () hs.application.launchOrFocus("") end)
+-- hs.hotkey.bind(mash, ';', function () hs.application.launchOrFocus("") end)
+
+hs.hotkey.bind(mash, 'n', function () hs.application.launchOrFocus("Evernote") end)
+-- hs.hotkey.bind(mash, 'e', function () hs.application.launchOrFocus("") end)
+hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Textual 5") end)
+hs.hotkey.bind(mash, 'o', function () hs.application.launchOrFocus("Twitter") end)
+
+-- hs.hotkey.bind(mash, 'k', function () hs.application.launchOrFocus("") end)
+-- hs.hotkey.bind(mash, 'm', function () hs.application.launchOrFocus("") end)
+hs.hotkey.bind(mash, ',', function () hs.application.launchOrFocus("System Preferences") end)
+-- hs.hotkey.bind(mash, '.', function () hs.application.launchOrFocus("") end)
+-- hs.hotkey.bind(mash, '/', function () hs.application.launchOrFocus("") end)
 
 hs.hotkey.bind(mashAlt, 'c', function() hs.toggleConsole() end)
 
