@@ -28,7 +28,11 @@
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
 # PROMPT_END=' λ ▶ ▷ ○ ▧ ✡ ▣ ✪ ☯ ◇ → ↦ ↪ ⇉ ⇒ ⇨ ⇰ ❯ ➠ ➣ ➤ ➜ ➞ ➽ ➾ ₹ 元 » × ℍ ⅀ ☞ '
-PROMPT_END='► '
+PROMPT_END='$'
+# JOBS='⚙⁕'
+ROOT_SYM='⚡'
+JOBS_SYM='⁕'
+FAIL_SYM='✘'
 
 # brights: 8 black, 9 red, 10 green, 11 yellow, 12 blue, 13 magenta, 14 cyan, 15 white
 HOST_CLR=8
@@ -56,7 +60,7 @@ prompt_segment() {
 prompt_end() {
   fg="%F{$HOST_CLR}"
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}%{$fg%}$PROMPT_END"
+    echo -n " %{%k%F{$CURRENT_BG}%}%{$fg%}$PROMPT_END "
   else
     echo -n "%{%k%}"
   fi
@@ -167,22 +171,22 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$ROOT_SYM"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$JOBS_SYM"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$FAIL_SYM"
 
-  [[ -n "$symbols" ]] && prompt_segment default black "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment default black " $symbols"
 }
 
 ## Main prompt
 build_prompt() {
   RETVAL=$?
-  prompt_status
   prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_git
   prompt_hg
+  prompt_status
   prompt_end
 }
 
