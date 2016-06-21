@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export ZSH_CUSTOM=$HOME/zsh_custom
+export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 export TERM="xterm-256color"
 
@@ -59,7 +59,11 @@ ZSH_THEME="agnoster-dktn"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx sublime sudo extract tmux last-working-dir dircycle)
+plugins=(git osx sublime sudo extract tmux last-working-dir dktn-dircycle)
+
+# dktn-dircycle:
+# bindkey "\e[1;2H" insert-cycledleft
+# bindkey "\e[1;2F" insert-cycledright
 
 # User configuration
 
