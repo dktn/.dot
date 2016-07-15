@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export DOT_DIR="$HOME/.dot"
+export OHMYZSH_DIR="$HOME/.oh-my-zsh/custom"
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
@@ -25,9 +26,13 @@ ln -s $DOT_DIR/.zshrc $HOME/.zshrc
 rm -f $HOME/.ghci
 ln -s $DOT_DIR/.ghci $HOME/.ghci
 
-rm -f $HOME/zsh_custom/themes/agnoster-dktn.zsh-theme
-mkdir -p $HOME/zsh_custom/themes
-ln -s $DOT_DIR/agnoster-dktn.zsh-theme $HOME/zsh_custom/themes/agnoster-dktn.zsh-theme
+rm -f $OHMYZSH_DIR/themes/agnoster-dktn.zsh-theme
+mkdir -p $OHMYZSH_DIR/themes
+ln -s $DOT_DIR/oh-my-zsh-custom/agnoster-dktn.zsh-theme $OHMYZSH_DIR/themes/agnoster-dktn.zsh-theme
+
+rm -rf $OHMYZSH_DIR/plugins/dircycle
+mkdir -p $OHMYZSH_DIR/plugins/dircycle
+ln -s $DOT_DIR/oh-my-zsh-custom/dircycle.plugin.zsh $OHMYZSH_DIR/plugins/dircycle/dircycle.plugin.zsh
 
 rm -f $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $DOT_DIR/.gitconfig $HOME/.gitconfig
