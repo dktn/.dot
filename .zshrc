@@ -59,7 +59,8 @@ ZSH_THEME="agnoster-dktn"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx sublime sudo extract tmux last-working-dir dktn-dircycle)
+plugins=(git osx sublime sudo extract tmux)
+# plugins=(git osx sublime sudo extract tmux last-working-dir dircycle)
 
 # dktn-dircycle:
 # bindkey "\e[1;2H" insert-cycledleft
