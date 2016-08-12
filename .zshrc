@@ -68,7 +68,7 @@ plugins=(git osx sublime sudo extract tmux)
 
 # User configuration
 
-export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART=false
 export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_TMUX_AUTOQUIT=false
 
