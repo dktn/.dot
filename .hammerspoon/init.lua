@@ -87,7 +87,7 @@ hs.hotkey.bind(mash, 'v', function () hs.application.launchOrFocus("iTerm") end)
 -- hs.hotkey.bind(mash, 'b', function () hs.application.launchOrFocus("Skim") end)
 
 -- hs.hotkey.bind(mash, 'j', function () hs.application.launchOrFocus("Firefox") end)
-hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
+-- hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
 -- hs.hotkey.bind(mash, 'u', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, 'y', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, ';', function () hs.application.launchOrFocus("") end)
