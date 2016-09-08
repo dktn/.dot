@@ -1,5 +1,0 @@
-{
-    "shell_cmd": "cd \\$HOME/newbyteorder/new_byte_order/build_7.10/backend; time stack build --copy-bins --ghc-options=\"-dshow-passes -O0 -funbox-strict-fields -fcontext-stack=3000 \"",
-    "cmd": ["stack", "build", "--copy-bins", "--ghc-options=\"-dshow-passes\""],
-    "selector": "source.haskell"
-}

@@ -1,3 +1,0 @@
-[
-    { "keys": ["ctrl+alt+j"], "command": "sublime_haskell_stylish" }
-]
