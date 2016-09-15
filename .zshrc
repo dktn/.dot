@@ -59,7 +59,7 @@ ZSH_THEME="agnoster-dktn"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx sublime sudo extract tmux)
+plugins=(git osx sudo extract tmux)
 # plugins=(git osx sublime sudo extract tmux last-working-dir dircycle)
 
 # dktn-dircycle:
@@ -97,8 +97,8 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias stz="st ~/.zshrc"
-alias stzl="st ~/.zshrc.local"
+alias ez="atom ~/.zshrc"
+alias ezl="atom ~/.zshrc.local"
 alias srcz="source ~/.zshrc"
 
 setopt NO_NOMATCH
