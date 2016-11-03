@@ -16,9 +16,12 @@ hs.grid.HINTS = {
 
 local gw = hs.grid.GRIDWIDTH
 local gh = hs.grid.GRIDHEIGHT
-local gws = 5
-local gwm = 6
-local gwb = 7
+local gw05 = 5
+local gw06 = 6
+local gw07 = 7
+local gw08 = 8
+local gw09 = 9
+local gw10 = 10
 
 local gridset = function(x, y, w, h)
     return function()
@@ -35,6 +38,22 @@ end
 hs.hotkey.bind(mashAltShift, '1', function() hs.layout.apply(internal_display) end)
 hs.hotkey.bind(mashAltShift, '2', function() hs.layout.apply(dual_display) end)
 
+
+local gridMash = mashAlt
+-- local gridKeysLeft  = { 'q', 'w', 'e', 'r', 't' } -- Qwerty
+-- local gridKeysRight = { 'a', 's', 'd', 'f', 'g' } -- Qwerty
+local gridKeysLeft  = { 'q', 'w', 'f', 'p', 'g'} -- Colemak
+local gridKeysRight = { 'a', 'r', 's', 't', 'd'} -- Colemak
+hs.hotkey.bind(gridMash, gridKeysLeft[1], gridset(0,   0, gw05,  gh))
+hs.hotkey.bind(gridMash, gridKeysLeft[2], gridset(0,   0, gw06,  gh))
+hs.hotkey.bind(gridMash, gridKeysLeft[3], gridset(0,   0, gw07,  gh))
+hs.hotkey.bind(gridMash, gridKeysLeft[4], gridset(0,   0, gw08,  gh))
+hs.hotkey.bind(gridMash, gridKeysLeft[5], gridset(0,   0, gw10, gh))
+hs.hotkey.bind(gridMash, gridKeysRight[1], hs.grid.maximizeWindow)
+hs.hotkey.bind(gridMash, gridKeysRight[2], gridset(gw - gw08, 0, gw08, gh))
+hs.hotkey.bind(gridMash, gridKeysRight[3], gridset(gw - gw07, 0, gw07, gh))
+hs.hotkey.bind(gridMash, gridKeysRight[4], gridset(gw - gw06, 0, gw06, gh))
+hs.hotkey.bind(gridMash, gridKeysRight[5], gridset(gw - gw05, 0, gw05, gh))
 
 hs.hotkey.bind(mashAlt, 'z', hs.grid.pushWindowNextScreen)
 hs.hotkey.bind(mashAlt, 'h', function() hs.grid.toggleShow() end)
@@ -58,16 +77,6 @@ hs.hotkey.bind(moveMash, moveKeys[2], hs.grid.pushWindowUp)
 hs.hotkey.bind(moveMash, moveKeys[3], hs.grid.pushWindowDown)
 hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
 
-local gridMash = mashAlt
--- local gridKeys = { 'q', 'w', 'e', 'r', 't', 'a' } -- Qwerty
-local gridKeys = { 'q', 'w', 'f', 'p', 'g', 'a' } -- Colemak
-hs.hotkey.bind(gridMash, gridKeys[1], gridset(0,   0, gwm, gh))
-hs.hotkey.bind(gridMash, gridKeys[2], gridset(0,   0, gwb, gh))
-hs.hotkey.bind(gridMash, gridKeys[3], gridset(gws, 0, gwb, gh))
-hs.hotkey.bind(gridMash, gridKeys[4], gridset(gwm, 0, gwm, gh))
-hs.hotkey.bind(gridMash, gridKeys[5], gridset(gwb, 0, gws, gh))
-hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
-
 -- Launch applications
 
 -- hs.hotkey.bind(mash, 'q', function () hs.application.launchOrFocus("") end)
@@ -75,8 +84,8 @@ hs.hotkey.bind(gridMash, gridKeys[6], hs.grid.maximizeWindow)
 -- hs.hotkey.bind(mash, 'p', function () hs.application.launchOrFocus("") end)
 hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("SourceTree") end)
 
-hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Dash") end)
-hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("Atom") end)
+hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Atom") end)
+hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("Dash") end)
 hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Safari") end)
 hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Google Chrome") end)
 -- hs.hotkey.bind(mash, 'd', function () hs.application.launchOrFocus("Finder") end)
@@ -88,7 +97,7 @@ hs.hotkey.bind(mash, 'v', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(mash, 'b', function () hs.application.launchOrFocus("Finder") end)
 
 -- hs.hotkey.bind(mash, 'j', function () hs.application.launchOrFocus("Firefox") end)
--- hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(mash, 'l', function () hs.application.launchOrFocus("Slack") end)
 -- hs.hotkey.bind(mash, 'u', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, 'y', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, ';', function () hs.application.launchOrFocus("") end)
@@ -175,9 +184,9 @@ local displayLaptop = "Color LCD"
 local displayMonitor = "G257HU"
 -- local displayMonitor = "Thunderbolt Display"
 
-local gridMax        = {x=0,   y=0, w=gw,  h=gh}
-local gridLeftBig    = {x=0,   y=0, w=gwb, h=gh}
-local gridRightSmall = {x=gwb, y=0, w=gws, h=gh}
+local gridMax        = {x=0,    y=0, w=gw,   h=gh}
+local gridLeftBig    = {x=0,    y=0, w=gw07, h=gh}
+local gridRightSmall = {x=gw07, y=0, w=gw05, h=gh}
 
 local internalDisplay = {
     {"iTerm",               0, displayLaptop,  gridMax},
