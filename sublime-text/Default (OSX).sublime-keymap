@@ -1,0 +1,12 @@
+[
+	{ "keys": ["ctrl++"], "command": "increase_font_size" },
+	{ "keys": ["ctrl+="], "command": "increase_font_size" },
+	{ "keys": ["ctrl+-"], "command": "decrease_font_size" },
+    { "keys": ["alt+ctrl+k"], "command": "toggle_side_bar" },
+    { "keys": ["alt+ctrl+m"], "command": "toggle_minimap" },
+    { "keys": ["alt+ctrl+r"], "command": "reveal_in_side_bar"},
+    { "keys": ["alt+ctrl+1"], "command": "focus_group", "args": { "group": 0 } },
+    { "keys": ["alt+ctrl+2"], "command": "focus_group", "args": { "group": 1 } },
+    { "keys": ["alt+ctrl+3"], "command": "focus_group", "args": { "group": 2 } },
+    { "keys": ["alt+ctrl+4"], "command": "focus_group", "args": { "group": 3 } }
+]

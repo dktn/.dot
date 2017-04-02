@@ -1,0 +1,5 @@
+<snippet>
+    <tabTrigger>.</tabTrigger>
+    <content>∘ $0</content>
+    <scope>source.haskell</scope>
+</snippet>
