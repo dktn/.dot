@@ -1,11 +1,11 @@
 {
 	"always_show_minimap_viewport": true,
-	"color_scheme": "Packages/Theme - Dktn SolarizedGray/Dktn SolarizedGray.tmTheme",
+	"color_scheme": "Packages/dktn-solarized-brain-theme/dktn-solarized-brain.tmTheme",
 	"detect_indentation": false,
 	"draw_minimap_border": false,
 	"draw_shadows": false,
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 12.0,
+	"font_size": 9,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -24,7 +24,7 @@
 	"scroll_speed": 15,
 	"show_panel_on_build": false,
 	"tab_size": 4,
-	"theme": "Dktn SolarizedGray.sublime-theme",
+	"theme": "dktn-solarized-brain.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true
