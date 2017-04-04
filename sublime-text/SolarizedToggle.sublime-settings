@@ -1,8 +1,8 @@
 {
-	"color_scheme_dark": "Packages/Theme - Dktn SolarizedGray/Dktn SolarizedGray.tmTheme",
-	"color_scheme_light": "Packages/Theme - Dktn SolarizedDark/Dktn SolarizedDark.tmTheme",
+	"color_scheme_dark": "Packages/dktn-solarized-brain-theme/dktn-solarized-brain.tmTheme",
+	"color_scheme_light": "Packages/dktn-solarized-gray-theme/dktn-solarized-gray.tmTheme",
 	"enable_theme_switching": true,
 	"solarized_toggle_mode": "dark",
-	"theme_dark": "Dktn SolarizedGray.sublime-theme",
-	"theme_light": "Dktn SolarizedDark.sublime-theme"
+	"theme_dark": "dktn-solarized-brain.sublime-theme",
+	"theme_light": "dktn-solarized-gray.sublime-theme"
 }
