@@ -18,6 +18,11 @@ export DOT_ST="$DOT_DIR/sublime-text"
 export ST_PACK_DIR="$HOME/$ST_DIR/Packages"
 export ST_USER_DIR="$ST_PACK_DIR/User"
 
+if [ ! -d "$ST_USER_DIR" ]; then
+    echo "Directory $ST_USER_DIR does not exist!"
+    exit 1
+fi
+
 echo "Creating Sublime Text 3 links in $ST_USER_DIR"
 
 function create_sublime_symlink {
