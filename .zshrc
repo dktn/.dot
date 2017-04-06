@@ -107,4 +107,7 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 stty -ixon
 
-source ~/.zshrc.local
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+

@@ -20,41 +20,22 @@ export ST_USER_DIR="$ST_PACK_DIR/User"
 
 echo "Creating Sublime Text 3 links in $ST_USER_DIR"
 
-export ST_PREFERENCES="Preferences.sublime-settings"
-rm -f "$ST_USER_DIR/$ST_PREFERENCES"
-ln -s "$DOT_ST/$ST_PREFERENCES" "$ST_USER_DIR/$ST_PREFERENCES"
+function create_sublime_symlink {
+    echo "Create symlink $ST_USER_DIR/$1 -> $DOT_ST/$1"
+    rm -f "$ST_USER_DIR/$1"
+    ln -s "$DOT_ST/$1" "$ST_USER_DIR/$1"
+}
 
-export ST_KEYMAP="Default.sublime-keymap"
-rm -f "$ST_USER_DIR/$ST_KEYMAP"
-ln -s "$DOT_ST/$ST_KEYMAP" "$ST_USER_DIR/$ST_KEYMAP"
+create_sublime_symlink "Preferences.sublime-settings"
+create_sublime_symlink "Default.sublime-keymap"
+create_sublime_symlink "Default (OSX).sublime-keymap"
+create_sublime_symlink "Default (Linux).sublime-keymap"
+create_sublime_symlink "Dot.sublime-snippet"
+create_sublime_symlink "SolarizedToggle.sublime-settings"
 
-export ST_KEYMAP_OSX="Default (OSX).sublime-keymap"
-rm -f "$ST_USER_DIR/$ST_KEYMAP_OSX"
-ln -s "$DOT_ST/$ST_KEYMAP_OSX" "$ST_USER_DIR/$ST_KEYMAP_OSX"
-
-export ST_KEYMAP_LINUX="Default (Linux).sublime-keymap"
-rm -f "$ST_USER_DIR/$ST_KEYMAP_LINUX"
-ln -s "$DOT_ST/$ST_KEYMAP_LINUX" "$ST_USER_DIR/$ST_KEYMAP_LINUX"
-
-export ST_DOT="Dot.sublime-snippet"
-rm -f "$ST_USER_DIR/$ST_DOT"
-ln -s "$DOT_ST/$ST_DOT" "$ST_USER_DIR/$ST_DOT"
-
-export ST_SOLAR="SolarizedToggle.sublime-settings"
-rm -f "$ST_USER_DIR/$ST_SOLAR"
-ln -s "$DOT_ST/$ST_SOLAR" "$ST_USER_DIR/$ST_SOLAR"
-
-# export ST_STACK="Stack.sublime-build"
-# rm -f "$ST_USER_DIR/$ST_STACK"
-# ln -s "$DOT_ST/$ST_STACK" "$ST_USER_DIR/$ST_STACK"
-
-# export ST_SUBLIME_HASKELL="SublimeHaskell.sublime-settings"
-# rm -f "$ST_USER_DIR/$ST_SUBLIME_HASKELL"
-# ln -s "$DOT_ST/$ST_SUBLIME_HASKELL" "$ST_USER_DIR/$ST_SUBLIME_HASKELL"
-
-# export ST_SUB_HASKELL="Haskell-SublimeHaskell.sublime-settings"
-# rm -f "$ST_USER_DIR/$ST_SUB_HASKELL"
-# ln -s "$DOT_ST/$ST_SUB_HASKELL" "$ST_USER_DIR/$ST_SUB_HASKELL"
+# create_sublime_symlink "Stack.sublime-build"
+# create_sublime_symlink "SublimeHaskell.sublime-settings"
+# create_sublime_symlink "Haskell-SublimeHaskell.sublime-settings"
 
 # export ST_SUB_HASKELL_DEF="Haskell-SublimeHaskell.tmLanguage"
 # rm -f "$ST_PACK_DIR/SublimeHaskell/Syntaxes/$ST_SUB_HASKELL_DEF"

@@ -84,7 +84,7 @@ hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
 -- hs.hotkey.bind(mash, 'p', function () hs.application.launchOrFocus("") end)
 hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("SourceTree") end)
 
-hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Dash") end)
+hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("iTerm") end)
 hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("Sublime Text") end)
 hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Safari") end)
 hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Google Chrome") end)
@@ -93,7 +93,7 @@ hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Google Chrom
 hs.hotkey.bind(mash, 'z', function () hs.application.launchOrFocus("Stickies") end)
 hs.hotkey.bind(mash, 'x', function () hs.application.launchOrFocus("Markdown PLus") end)
 hs.hotkey.bind(mash, 'c', function () hs.application.launchOrFocus("Skim") end)
-hs.hotkey.bind(mash, 'v', function () hs.application.launchOrFocus("iTerm") end)
+hs.hotkey.bind(mash, 'v', function () hs.application.launchOrFocus("Dash") end)
 hs.hotkey.bind(mash, 'b', function () hs.application.launchOrFocus("Finder") end)
 
 -- hs.hotkey.bind(mash, 'j', function () hs.application.launchOrFocus("Firefox") end)
