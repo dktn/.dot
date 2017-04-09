@@ -1,16 +1,16 @@
 #!/bin/bash
 
+. "install-lib.sh"
+
 export DOT_DIR="$HOME/.dot"
 
 unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-    echo "Linux"
+if [[ $unamestr == 'Linux' ]]; then
     export ST_DIR=".config/sublime-text-3"
-elif [[ "$unamestr" == 'Darwin' ]]; then
-    echo "OS X"
+elif [[ $unamestr == 'Darwin' ]]; then
     export ST_DIR="Library/Application Support/Sublime Text 3"
 else
-    echo "Not recognized system"
+    echo "Can't localize Sublime Text 3 directory"
     exit -1
 fi
 

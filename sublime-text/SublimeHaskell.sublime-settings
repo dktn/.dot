@@ -1,6 +1,6 @@
 {
 	"enable_auto_check": false,
-	"enable_hdevtools": false,
+	"enable_hdevtools": true,
 	"inspect_modules": false,
 	"enable_auto_build": false
 }
