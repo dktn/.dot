@@ -11,3 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+unsetopt CORRECT
+
+unalias cp
+unalias ln
+unalias mkdir
+unalias mv
+unalias rm
