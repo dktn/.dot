@@ -6,6 +6,7 @@ export ZSH_TMUX_AUTOQUIT=false
 
 alias stz="st ~/.zshrc"
 alias stzl="st ~/.zshrc.local"
+alias stzc="st ~/.zshrc.common"
 alias srcz="source ~/.zshrc"
 
 # allows echo 2*2
