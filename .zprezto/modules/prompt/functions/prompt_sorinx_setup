@@ -52,8 +52,8 @@ function prompt_sorin_git_info {
       source "$_prompt_sorin_precmd_async_data"
       l_br='('
       r_br=')'
-      RPROMPT+='${git_info:+${(e)git_info[rprompt]}}'
-      GITPROMPT='%F{8}|${git_info:+${(e)git_info[prompt]}}%F{8}'
+      RPROMPT+='${git_info:+${(e)git_info[rprompt]}} %F{8}%n@%m %F{7}%D{%L:%M:%S%p}'
+      GITPROMPT='%F{8}|${git_info:+${(e)git_info[prompt]}}'
       MARKS='${git_info:+${(e)git_info[marks]}}'
       if [[ ! -z "${git_info// }" ]]; then
           if [[ ! -z "${git_info:+${(e)git_info[marks]}}" ]]; then
@@ -120,6 +120,16 @@ function prompt_sorin_setup {
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_sorin_precmd
 
+  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    _prompt_sorinx_colors=(
+      "%F{166}" # Orange
+    )
+  else
+    _prompt_sorinx_colors=(
+      "%F{red}"
+  )
+  fi
+
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{7}...%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{1}❯%F{3}❯%F{2}❯%f%b'
@@ -133,7 +143,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:ahead'     format '%%B%F{13}⬆%f%%b'
   zstyle ':prezto:module:git:info:behind'    format '%%B%F{13}⬇%f%%b'
   zstyle ':prezto:module:git:info:branch'    format '%%B%F{14}%b%f%%b'
-  zstyle ':prezto:module:git:info:commit'    format '%%B%F{0}%.7c%f%%b'
+  zstyle ':prezto:module:git:info:commit'    format "%%B%${_prompt_sorinx_colors[1]}%.7c%f%%b"
   zstyle ':prezto:module:git:info:deleted'   format '%%B%F{1}✖%f%%b'
   zstyle ':prezto:module:git:info:modified'  format '%%B%F{4}✱%f%%b'
   zstyle ':prezto:module:git:info:position'  format '%%B%F{13}%p%f%%b'
