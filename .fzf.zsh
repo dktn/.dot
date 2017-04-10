@@ -1,16 +1,28 @@
+unamestr=`uname`
+if [[ $unamestr == 'Linux' ]]; then
+    export FZF_BIN="/home/adam/.fzf/bin"
+    export FZF_SHELL="/home/adam/.fzf/shell"
+elif [[ $unamestr == 'Darwin' ]]; then
+    export FZF_BIN="/usr/local/opt/fzf/bin"
+    export FZF_SHELL="/usr/local/opt/fzf/shell"
+else
+    echo "Operating system $unamestr not supported."
+    exit -1
+fi
+
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [[ ! "$PATH" == "*$FZF_BIN*" ]]; then
+  export PATH="$PATH:$FZF_BIN"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$FZF_SHELL/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "$FZF_SHELL/key-bindings.zsh"
 
 
 # Setting ag as the default source for fzf
