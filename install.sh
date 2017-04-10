@@ -2,7 +2,7 @@
 
 . "install-lib.sh"
 
-create_symlink     ".zshrc"                 ".zprezto"
+create_symlink     ".zshrc"                 ".zprezto" "/"
 create_symlink     ".zshrc.common"
 create_symlink     ".tmux.conf"
 create_symlink_osx ".tmux-osx.conf"

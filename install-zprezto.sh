@@ -2,11 +2,19 @@
 
 . "install-lib.sh"
 
+export ZPREZTO_DIR=".zprezto"
+export ZPREZTO_PROMPTS_DIR="$ZPREZTO_DIR/modules/prompt/functions"
+
+export FULL_ZPREZTO_DIR="$HOME/$ZPREZTO_DIR"
+if [ ! -d "$FULL_ZPREZTO_DIR" ]; then
+    echo "Directory $FULL_ZPREZTO_DIR does not exist!"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
+
 export LINK_LEN=70
 
-create_symlink ".zshrc"     ".zprezto"
-create_symlink ".zpreztorc" ".zprezto"
-create_symlink ".zprezto/modules/prompt/functions/prompt_sorinx_setup"
-
+create_symlink ".zshrc"              "$ZPREZTO_DIR" "/"
+create_symlink ".zpreztorc"          "$ZPREZTO_DIR" "/"
+create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
 
 echo "Done."

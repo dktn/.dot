@@ -4,10 +4,14 @@
 
 export LINK_LEN=70
 
-create_symlink ".zshrc" ".oh-my-zsh"
-ensure_dir     ".oh-my-zsh/custom/themes/"
-create_symlink ".oh-my-zsh/custom/themes/agnoster-dktn.zsh-theme"
-ensure_dir     ".oh-my-zsh/custom/plugins/dircycle/"
-create_symlink ".oh-my-zsh/custom/plugins/dircycle/dircycle.plugin.zsh"
+export OH_MY_ZSH_DIR=".oh-my-zsh"
+export OH_MY_ZSH_THEMES_DIR="$OH_MY_ZSH_DIR/custom/themes"
+export OH_MY_ZSH_PLUGINS_DIR="$OH_MY_ZSH_DIR/custom/plugins"
+
+create_symlink ".zshrc"                  "$OH_MY_ZSH_DIR"        "/"
+ensure_dir                               "$OH_MY_ZSH_THEMES_DIR"
+create_symlink "agnoster-dktn.zsh-theme" "$OH_MY_ZSH_THEMES_DIR"
+ensure_dir                               "$OH_MY_ZSH_PLUGINS_DIR/dircycle"
+create_symlink "dircycle.plugin.zsh"     "$OH_MY_ZSH_PLUGINS_DIR/dircycle"
 
 echo "Done."
