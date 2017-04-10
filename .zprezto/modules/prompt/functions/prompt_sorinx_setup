@@ -50,12 +50,17 @@ function prompt_sorin_git_info {
     if [[ -s "$_prompt_sorin_precmd_async_data" ]]; then
       alias typeset='typeset -g'
       source "$_prompt_sorin_precmd_async_data"
-      l_br='['
-      r_br=']'
+      l_br='('
+      r_br=')'
       RPROMPT+='${git_info:+${(e)git_info[rprompt]}}'
-      GITPROMPT=' %F{7}$l_br${git_info:+${(e)git_info[prompt]}}%F{7}$r_br'
+      GITPROMPT='%F{8}|${git_info:+${(e)git_info[prompt]}}%F{8}'
+      MARKS='${git_info:+${(e)git_info[marks]}}'
       if [[ ! -z "${git_info// }" ]]; then
-          PROMPT="$PROMPT_BASE$GITPROMPT$PROMPT_ARROWS"
+          if [[ ! -z "${git_info:+${(e)git_info[marks]}}" ]]; then
+              PROMPT="$PROMPT_BASE$GITPROMPT$MARKS$PROMPT_ARROWS"
+          else
+              PROMPT="$PROMPT_BASE$GITPROMPT$PROMPT_ARROWS"
+          fi
       else
           PROMPT="$PROMPT_BASE$PROMPT_ARROWS"
       fi
@@ -124,20 +129,21 @@ function prompt_sorin_setup {
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action'    format '%F{7}:%f%%B%F{9}%s%f%%b'
-  zstyle ':prezto:module:git:info:added'     format ' %%B%F{2}✚%f%%b'
-  zstyle ':prezto:module:git:info:ahead'     format ' %%B%F{13}⬆%f%%b'
-  zstyle ':prezto:module:git:info:behind'    format ' %%B%F{13}⬇%f%%b'
-  zstyle ':prezto:module:git:info:branch'    format  '%%B%F{14}%b%f%%b'
-  zstyle ':prezto:module:git:info:commit'    format  '%%B%F{0}%.7c%f%%b'
-  zstyle ':prezto:module:git:info:deleted'   format ' %%B%F{1}✖%f%%b'
-  zstyle ':prezto:module:git:info:modified'  format ' %%B%F{4}✱%f%%b'
-  zstyle ':prezto:module:git:info:position'  format ' %%B%F{13}%p%f%%b'
-  zstyle ':prezto:module:git:info:renamed'   format ' %%B%F{5}➜%f%%b'
-  zstyle ':prezto:module:git:info:stashed'   format ' %%B%F{6}✭%f%%b'
-  zstyle ':prezto:module:git:info:unmerged'  format ' %%B%F{3}═%f%%b'
-  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{14}◼%f%%b'
+  zstyle ':prezto:module:git:info:added'     format '%%B%F{2}✚%f%%b'
+  zstyle ':prezto:module:git:info:ahead'     format '%%B%F{13}⬆%f%%b'
+  zstyle ':prezto:module:git:info:behind'    format '%%B%F{13}⬇%f%%b'
+  zstyle ':prezto:module:git:info:branch'    format '%%B%F{14}%b%f%%b'
+  zstyle ':prezto:module:git:info:commit'    format '%%B%F{0}%.7c%f%%b'
+  zstyle ':prezto:module:git:info:deleted'   format '%%B%F{1}✖%f%%b'
+  zstyle ':prezto:module:git:info:modified'  format '%%B%F{4}✱%f%%b'
+  zstyle ':prezto:module:git:info:position'  format '%%B%F{13}%p%f%%b'
+  zstyle ':prezto:module:git:info:renamed'   format '%%B%F{5}➜%f%%b'
+  zstyle ':prezto:module:git:info:stashed'   format '%%B%F{6}✭%f%%b'
+  zstyle ':prezto:module:git:info:unmerged'  format '%%B%F{3}═%f%%b'
+  zstyle ':prezto:module:git:info:untracked' format '%%B%F{0}◼%f%%b'
   zstyle ':prezto:module:git:info:keys'      format \
-    'prompt'  '$(coalesce "%b" "%p" "%c")%s%A%B%S%a%d%m%r%U%u' \
+    'prompt'  '$(coalesce "%b" "%p" "%c")' \
+    'marks'   '%s%A%B%S%a%d%m%r%U%u' \
     'rprompt' '%R %c'
 
   # Define prompts.
