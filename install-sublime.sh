@@ -3,16 +3,19 @@
 . "install-lib.sh"
 
 unamestr=`uname`
-if [[ $unamestr == 'Linux' ]]; then
-    export ST_DIR=".config/sublime-text-3"
-    export LINK_LEN=100
-elif [[ $unamestr == 'Darwin' ]]; then
-    export ST_DIR="Library/Application Support/Sublime Text 3"
-    export LINK_LEN=120
-else
-    echo "Can't localize Sublime Text 3 directory"
-    exit -1
-fi
+case $unamestr in
+    'Linux')
+        export ST_DIR=".config/sublime-text-3"
+        export LINK_LEN=100
+        ;;
+    'Darwin')
+        export ST_DIR="Library/Application Support/Sublime Text 3"
+        export LINK_LEN=120
+        ;;
+    *)
+        echo "Can't localize Sublime Text 3 directory"
+        exit -1
+esac
 
 export DOT_ST_DIR="sublime-text"
 export ST_PACK_DIR="$ST_DIR/Packages"

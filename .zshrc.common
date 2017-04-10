@@ -15,20 +15,25 @@ setopt NO_NOMATCH
 # disable Ctrl-S scroll lock
 stty -ixon
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 unamestr=`uname`
-if [[ $unamestr == 'Linux' ]]; then
-elif [[ $unamestr == 'Darwin' ]]; then
-    export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
-    export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    # export PATH="$PATH:/opt/X11/bin"
-    export PATH="$PATH:/Library/TeX/texbin"
-else
-    echo "Not recognized system."
-fi
+case $unamestr in
+    'Linux')
+        ;;
+    'Darwin')
+        export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
+        export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
+        export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+        # export PATH="$PATH:/opt/X11/bin"
+        export PATH="$PATH:/Library/TeX/texbin"
+        ;;
+    *)
+        echo "Not recognized system."
+        ;;
+esac
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

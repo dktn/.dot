@@ -1,19 +1,26 @@
+#!/bin/zsh
+
+# Detect system
 unamestr=`uname`
-if [[ $unamestr == 'Linux' ]]; then
-    export FZF_BIN="/home/adam/.fzf/bin"
-    export FZF_SHELL="/home/adam/.fzf/shell"
-elif [[ $unamestr == 'Darwin' ]]; then
-    export FZF_BIN="/usr/local/opt/fzf/bin"
-    export FZF_SHELL="/usr/local/opt/fzf/shell"
-else
-    echo "Operating system $unamestr not supported."
-    exit -1
-fi
+case $unamestr in
+    'Linux')
+        export FZF_BIN="/home/adam/.fzf/bin"
+        export FZF_SHELL="/home/adam/.fzf/shell"
+        ;;
+    'Darwin')
+        export FZF_BIN="/usr/local/opt/fzf/bin"
+        export FZF_SHELL="/usr/local/opt/fzf/shell"
+        ;;
+    *)
+        echo "Operating system $unamestr not supported."
+        exit -1
+        ;;
+esac
 
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == "*$FZF_BIN*" ]]; then
-  export PATH="$PATH:$FZF_BIN"
+    export PATH="$PATH:$FZF_BIN"
 fi
 
 # Auto-completion

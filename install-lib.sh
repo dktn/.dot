@@ -4,14 +4,18 @@ export DOT_DIR="$HOME/.dot"
 
 function show_system {
     unamestr=`uname`
-    if [[ $unamestr == 'Linux' ]]; then
-        echo "Linux"
-    elif [[ $unamestr == 'Darwin' ]]; then
-        echo "OS X"
-    else
-        echo "Not recognized system."
-        exit -1
-    fi
+    case $unamestr in
+        'Linux')
+            echo "Linux"
+            ;;
+        'Darwin')
+            echo "OS X"
+            ;;
+        *)
+            echo "Not recognized system."
+            exit -1
+            ;;
+    esac
 }
 
 function ensure_dir {
