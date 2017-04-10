@@ -32,23 +32,31 @@ function create_symlink_linux {
     fi
 }
 
+# $1 - source/dest file
+# $2 - source      directory (relative to DOT  dir)
+# $3 - destination directory (relative to HOME dir)
 function create_symlink {
     if [ ! -n "$1" ]; then
         echo "Parameters not provided. Exiting."
         exit -1
     fi
-    src="$DOT_DIR/$1"
-    tgt="$HOME/$1"
+    src_file=$1
+    tgt_file=$1
+    src="$DOT_DIR/$src_file"
+    tgt="$HOME/$src_file"
     if [ -n "$2" ]; then
-        src="$DOT_DIR/$2/$1"
+        src="$DOT_DIR/$2/$src_file"
+    fi
+    if [ -n "$3" ]; then
+        tgt="$HOME/$3/$tgt_file"
     fi
     len=40
     if [ -n "$LINK_LEN" ]; then
         len=$LINK_LEN
     fi
-    printf "%14s %-*s -> %s\n" "Create symlink" $len $tgt $src
-    rm -f $tgt
-    ln -s $src $tgt
+    printf "%14s %-*s -> %s\n" "Create symlink" $len "$tgt" "$src"
+    # rm -f "$tgt"
+    # ln -s "$src" "$tgt"
 }
 
 show_system

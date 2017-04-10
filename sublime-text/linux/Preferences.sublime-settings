@@ -1,0 +1,85 @@
+{
+	"always_show_minimap_viewport": true,
+	"binary_file_patterns":
+	[
+		"generated/*",
+		"deps/*",
+		"*.tbz2",
+		"*.gzip",
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip"
+	],
+	"color_scheme": "Packages/dktn-solarized-brain-theme/dktn-solarized-brain.tmTheme",
+	"detect_indentation": false,
+	"draw_minimap_border": false,
+	"draw_shadows": false,
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		".svn",
+		".hg",
+		"CSV",
+		"node_modules",
+		".stack-work",
+		"_build"
+	],
+	"font_face": "Ubuntu Mono",
+	"font_size": 9,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Color Highlighter",
+		"Vintage"
+	],
+	"line_padding_bottom": -1,
+	"line_padding_top": 0,
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		120,
+		140
+	],
+	"scroll_past_end": true,
+	"scroll_speed": 15,
+	"show_panel_on_build": false,
+	"tab_size": 4,
+	"theme": "dktn-solarized-brain.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true
+}

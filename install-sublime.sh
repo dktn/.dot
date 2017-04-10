@@ -2,48 +2,44 @@
 
 . "install-lib.sh"
 
-export DOT_DIR="$HOME/.dot"
-
 unamestr=`uname`
 if [[ $unamestr == 'Linux' ]]; then
     export ST_DIR=".config/sublime-text-3"
+    export LINK_LEN=100
 elif [[ $unamestr == 'Darwin' ]]; then
     export ST_DIR="Library/Application Support/Sublime Text 3"
+    export LINK_LEN=120
 else
     echo "Can't localize Sublime Text 3 directory"
     exit -1
 fi
 
-export DOT_ST="$DOT_DIR/sublime-text"
-export ST_PACK_DIR="$HOME/$ST_DIR/Packages"
+export DOT_ST_DIR="sublime-text"
+export ST_PACK_DIR="$ST_DIR/Packages"
 export ST_USER_DIR="$ST_PACK_DIR/User"
+export FULL_ST_USER_DIR="$HOME/$ST_USER_DIR"
 
-if [ ! -d "$ST_USER_DIR" ]; then
-    echo "Directory $ST_USER_DIR does not exist!"
+if [ ! -d "$FULL_ST_USER_DIR" ]; then
+    echo "Directory $FULL_ST_USER_DIR does not exist!"
     exit 1
 fi
 
 echo "Creating Sublime Text 3 links in $ST_USER_DIR"
 
-function create_sublime_symlink {
-    echo "Create symlink $ST_USER_DIR/$1 -> $DOT_ST/$1"
-    rm -f "$ST_USER_DIR/$1"
-    ln -s "$DOT_ST/$1" "$ST_USER_DIR/$1"
-}
+create_symlink_osx   "Preferences.sublime-settings"            "$DOT_ST_DIR/osx"   "$ST_USER_DIR"
+create_symlink_linux "Preferences.sublime-settings"            "$DOT_ST_DIR/linux" "$ST_USER_DIR"
+create_symlink       "Default.sublime-keymap"                  "$DOT_ST_DIR"       "$ST_USER_DIR"
+create_symlink       "Default (OSX).sublime-keymap"            "$DOT_ST_DIR"       "$ST_USER_DIR"
+create_symlink       "Default (Linux).sublime-keymap"          "$DOT_ST_DIR"       "$ST_USER_DIR"
+create_symlink       "Dot.sublime-snippet"                     "$DOT_ST_DIR"       "$ST_USER_DIR"
+create_symlink       "SolarizedToggle.sublime-settings"        "$DOT_ST_DIR"       "$ST_USER_DIR"
 
-create_sublime_symlink "Preferences.sublime-settings"
-create_sublime_symlink "Default.sublime-keymap"
-create_sublime_symlink "Default (OSX).sublime-keymap"
-create_sublime_symlink "Default (Linux).sublime-keymap"
-create_sublime_symlink "Dot.sublime-snippet"
-create_sublime_symlink "SolarizedToggle.sublime-settings"
-
-# create_sublime_symlink "Stack.sublime-build"
-# create_sublime_symlink "SublimeHaskell.sublime-settings"
-# create_sublime_symlink "Haskell-SublimeHaskell.sublime-settings"
+# create_symlink       "Stack.sublime-build"                     "$DOT_ST_DIR"       "$ST_USER_DIR"
+# create_symlink       "SublimeHaskell.sublime-settings"         "$DOT_ST_DIR"       "$ST_USER_DIR"
+# create_symlink       "Haskell-SublimeHaskell.sublime-settings" "$DOT_ST_DIR"       "$ST_USER_DIR"
 
 # export ST_SUB_HASKELL_DEF="Haskell-SublimeHaskell.tmLanguage"
 # rm -f "$ST_PACK_DIR/SublimeHaskell/Syntaxes/$ST_SUB_HASKELL_DEF"
-# ln -s "$DOT_ST/$ST_SUB_HASKELL_DEF" "$ST_PACK_DIR/SublimeHaskell/Syntaxes/$ST_SUB_HASKELL_DEF"
+# ln -s "$DOT_DIR/$DOT_ST_DIR/$ST_SUB_HASKELL_DEF" "$ST_PACK_DIR/SublimeHaskell/Syntaxes/$ST_SUB_HASKELL_DEF"
 
-echo "Done"
+echo "Done."
