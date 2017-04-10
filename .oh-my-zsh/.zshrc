@@ -66,12 +66,6 @@ plugins=(git osx sudo sublime extract tmux)
 # bindkey "\e[1;2H" insert-cycledleft
 # bindkey "\e[1;2F" insert-cycledright
 
-# User configuration
-
-export ZSH_TMUX_AUTOSTART=false
-export ZSH_TMUX_AUTOCONNECT=false
-export ZSH_TMUX_AUTOQUIT=false
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -97,17 +91,4 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias stz="st ~/.zshrc"
-alias stzl="st ~/.zshrc.local"
-alias srcz="source ~/.zshrc"
-
-setopt NO_NOMATCH
-
-export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-stty -ixon
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
+[ -f ~/.zshrc.common ] && source ~/.zshrc.common

@@ -1,21 +1,20 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Prezto zsh config
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Customize Prezto
 
+# turn off command corrections
 unsetopt CORRECT
 
-unalias cp
-unalias ln
-unalias mkdir
-unalias mv
-unalias rm
+# restore normal behaviour
+unalias cp    2>/dev/null
+unalias ln    2>/dev/null
+unalias mkdir 2>/dev/null
+unalias mv    2>/dev/null
+unalias rm    2>/dev/null
+
+[ -f ~/.zshrc.common ] && source ~/.zshrc.common
