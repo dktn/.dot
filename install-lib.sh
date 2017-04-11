@@ -18,6 +18,14 @@ function show_system {
     esac
 }
 
+function rm_link {
+    file="$HOME/$1"
+    if [[ -L "$file" ]]; then
+        echo "rm $file"
+        rm "$file"
+    fi
+}
+
 function ensure_dir {
     cr_dir="$HOME/$1"
     printf "%-14s %s\n" "Create dir" $cr_dir
