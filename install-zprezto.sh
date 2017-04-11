@@ -11,10 +11,19 @@ if [ ! -d "$FULL_ZPREZTO_DIR" ]; then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
-export LINK_LEN=70
+if [[ "$1" == "clean" ]]; then
+    echo "Cleaning links..."
+    rm_link ".zpreztorc"
+    rm_link ".zlogin"
+    rm_link ".zlogout"
+    rm_link ".zshenv"
+    rm_link ".zprofile"
+else
+    export LINK_LEN=70
 
-create_symlink ".zshrc"              "$ZPREZTO_DIR" "/"
-create_symlink ".zpreztorc"          "$ZPREZTO_DIR" "/"
-create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
+    create_symlink ".zshrc"              "$ZPREZTO_DIR" "/"
+    create_symlink ".zpreztorc"          "$ZPREZTO_DIR" "/"
+    create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
+fi
 
 echo "Done."
