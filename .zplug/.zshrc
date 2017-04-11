@@ -5,9 +5,7 @@ source ~/.zplug/init.zsh
 # # Make sure to use double quotes
 # zplug "zsh-users/zsh-history-substring-search"
 
-# zplug "plugins/git",   from:oh-my-zsh
-
-# zplug "modules/prompt:skwp", from:prezto
+zplug "rimraf/k"
 
 zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh, hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
 

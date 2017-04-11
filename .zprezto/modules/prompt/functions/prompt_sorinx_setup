@@ -52,7 +52,8 @@ function prompt_sorin_git_info {
       source "$_prompt_sorin_precmd_async_data"
       l_br='('
       r_br=')'
-      RPROMPT+='${git_info:+${(e)git_info[rprompt]}} %F{8}%n@%m %F{7}%D{%L:%M:%S%p}'
+      GITRPROMPT='${git_info:+${(e)git_info[rprompt]}}'
+      RPROMPT="$RPROMPT_BASE_L $GITRPROMPT $RPROMPT_BASE_R"
       GITPROMPT='%F{8}|${git_info:+${(e)git_info[prompt]}}'
       MARKS='${git_info:+${(e)git_info[marks]}}'
       if [[ ! -z "${git_info// }" ]]; then
@@ -94,7 +95,7 @@ function prompt_sorin_precmd {
   prompt_sorin_pwd
 
   # Define prompts.
-  RPROMPT='${editor_info[overwrite]}%(?:: %F{1}⏎%f)${VIM:+" %B%F{6}V%f%b"}'
+  # RPROMPT='${editor_info[overwrite]}%(?:: %F{1}⏎%f)${VIM:+" %B%F{6}V%f%b"}'
 
   # Kill the old process of slow commands if it is still running.
   if (( _prompt_sorin_precmd_async_pid > 0 )); then
@@ -160,6 +161,8 @@ function prompt_sorin_setup {
   PROMPT_ARROWS='${editor_info[keymap]} '
   PROMPT_BASE='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%f "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)'
   PROMPT="$PROMPT_BASE$PROMPT_ARROWS"
+  RPROMPT_BASE_L='${editor_info[overwrite]}%(?:: %F{1}⏎%f)${VIM:+" %B%F{6}V%f%b"}'
+  RPROMPT_BASE_R='%F{8}%n@%m %F{7}%D{%L:%M:%S%p}'
   RPROMPT=''
   SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
 }

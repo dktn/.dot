@@ -10,6 +10,7 @@ if ! zgen saved; then
     # Prezto
     zgen prezto
     zgen prezto prompt theme 'sorinx'
+    zgen prezto syntax-highlighting
     zgen prezto git
 
     # Warn you when you run a command that you've got an alias for
