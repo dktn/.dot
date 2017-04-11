@@ -23,6 +23,7 @@ else
 
     create_symlink ".zshrc"              "$ZPREZTO_DIR" "/"
     create_symlink ".zpreztorc"          "$ZPREZTO_DIR" "/"
+    create_symlink ".zprezto.custom"     "$ZPREZTO_DIR" "/"
     create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
 fi
 

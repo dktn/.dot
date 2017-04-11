@@ -14,9 +14,14 @@ fi
 export ZPREZTO_DIR=".zprezto"
 export ZPREZTO_PROMPTS_DIR="$ZPREZTO_DIR/modules/prompt/functions"
 
-create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR" ".zgen/sorin-ionescu/prezto-master/modules/prompt/functions"
+export LINK_LEN=70
+
+ln_verbose "$FULL_ZGEN_DIR/sorin-ionescu/prezto-master" "${ZDOTDIR:-$HOME}/.zprezto"
+create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
 
 # zsh
-create_symlink ".zshrc" "$ZGEN_DIR" "/"
+create_symlink ".zshrc"             "$ZGEN_DIR"    "/"
+create_symlink ".zprezto.custom"    "$ZPREZTO_DIR" "/"
+
 
 echo "Done."

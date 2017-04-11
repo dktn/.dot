@@ -44,6 +44,18 @@ function create_symlink_linux {
     fi
 }
 
+function ln_verbose {
+    src=$1
+    tgt=$2
+    len=40
+    if [ -n "$LINK_LEN" ]; then
+        len=$LINK_LEN
+    fi
+    printf "%14s %-*s -> %s\n" "Create symlink" $len "$tgt" "$src"
+    rm -f "$tgt"
+    ln -s "$src" "$tgt"
+}
+
 # $1 - source/dest file
 # $2 - source      directory (relative to DOT  dir) - defaults to ""
 # $3 - destination directory (relative to HOME dir) - defaults to $2
@@ -68,13 +80,7 @@ function create_symlink {
             tgt="$HOME/$dst_dir/$tgt_file"
         fi
     fi
-    len=40
-    if [ -n "$LINK_LEN" ]; then
-        len=$LINK_LEN
-    fi
-    printf "%14s %-*s -> %s\n" "Create symlink" $len "$tgt" "$src"
-    rm -f "$tgt"
-    ln -s "$src" "$tgt"
+    ln_verbose "$src" "$tgt"
 }
 
 show_system

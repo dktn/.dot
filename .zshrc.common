@@ -28,6 +28,7 @@ case $unamestr in
         export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
         # export PATH="$PATH:/opt/X11/bin"
         export PATH="$PATH:/Library/TeX/texbin"
+        # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
         ;;
     *)
         echo "Not recognized system."
@@ -37,3 +38,4 @@ esac
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
