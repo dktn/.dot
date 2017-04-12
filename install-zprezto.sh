@@ -13,11 +13,7 @@ fi
 
 if [[ "$1" == "clean" ]]; then
     echo "Cleaning links..."
-    rm_link ".zpreztorc"
-    rm_link ".zlogin"
-    rm_link ".zlogout"
-    rm_link ".zshenv"
-    rm_link ".zprofile"
+    remove_prezto_links
 else
     export LINK_LEN=70
 

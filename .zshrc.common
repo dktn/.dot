@@ -18,11 +18,8 @@ stty -ixon
 
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-unamestr=`uname`
-case $unamestr in
-    'Linux')
-        ;;
-    'Darwin')
+case "$OSTYPE" in
+    darwin*)
         export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
         export SCALA_HOME=/usr/local/Cellar/scala/2.11.5/libexec
         export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -30,8 +27,10 @@ case $unamestr in
         export PATH="$PATH:/Library/TeX/texbin"
         # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
         ;;
+    linux*)
+        ;;
     *)
-        echo "Not recognized system."
+        echo "Not recognized system $OSTYPE."
         ;;
 esac
 
@@ -39,3 +38,4 @@ esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+time |& tail -n 1 | awk '{print "Start time: " $8 "s"}'

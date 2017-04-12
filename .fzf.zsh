@@ -1,15 +1,14 @@
 #!/bin/zsh
 
 # Detect system
-unamestr=`uname`
-case $unamestr in
-    'Linux')
-        export FZF_BIN="/home/adam/.fzf/bin"
-        export FZF_SHELL="/home/adam/.fzf/shell"
-        ;;
-    'Darwin')
+case "$OSTYPE" in
+    darwin*)
         export FZF_BIN="/usr/local/opt/fzf/bin"
         export FZF_SHELL="/usr/local/opt/fzf/shell"
+        ;;
+    linux*)
+        export FZF_BIN="/home/adam/.fzf/bin"
+        export FZF_SHELL="/home/adam/.fzf/shell"
         ;;
     *)
         echo "Operating system $unamestr not supported."

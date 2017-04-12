@@ -83,4 +83,12 @@ function create_symlink {
     ln_verbose "$src" "$tgt"
 }
 
+function remove_prezto_links {
+    rm_link ".zpreztorc"
+    rm_link ".zlogin"
+    rm_link ".zlogout"
+    rm_link ".zshenv"
+    rm_link ".zprofile"
+}
+
 show_system

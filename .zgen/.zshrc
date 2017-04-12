@@ -1,31 +1,53 @@
 # Zgen
 
-zstyle ':prezto:*:*' color 'yes'
+autoload -Uz compinit && \
+   compinit -C
 
 source "${HOME}/.zgen/zgen.zsh"
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
+    echo "Creating a zgen save"
+    # ZGEN_LOADED=()
+    # ZGEN_COMPLETIONS=()
 
     # Prezto
     zgen prezto
+    zgen prezto '*:*' color 'yes'
     zgen prezto prompt theme 'sorinx'
-    zgen prezto syntax-highlighting
     zgen prezto git
+    zgen prezto syntax-highlighting
+    # zgen prezto history-substring-search # Using FZF instead
 
     # Warn you when you run a command that you've got an alias for
     zgen load djui/alias-tips
 
-    zgen load rimraf/k
+    # # Automatically run zgen update and zgen selfupdate every 7 days
+    # zgen load unixorn/autoupdate-zgen
 
-    # Automatically run zgen update and zgen selfupdate every 7 days
-    zgen load unixorn/autoupdate-zgen
+    # some aliases
+    # zgen load unixorn/jpb.zshplugin
 
-    # OS X helpers
-    zgen load unixorn/tumult.plugin.zsh
+    # # OS X helpers
+    # zgen load unixorn/tumult.plugin.zsh
 
-    # Load more completion files for zsh from the zsh-lovers github repo
+    # # Load more completion files for zsh from the zsh-lovers github repo
     zgen load zsh-users/zsh-completions src
+
+    # Docker completion
+    zgen load srijanshetty/docker-zsh # buggy
+    # zgen load felixr/docker-zsh-completion
+
+    # zgen load vasyharan/zsh-brew-services
+
+    # GENCOMPL_FPATH=$HOME/.zsh/complete
+
+    # Add Fish-like autosuggestions to your ZSH
+    zgen load zsh-users/zsh-autosuggestions
+
+    # k is a zsh script / plugin to make directory listings more readable,
+    # adding a bit of color and some git status information on files and directories
+    zgen load rimraf/k
 
     # generate the init script from plugins above
     zgen save
