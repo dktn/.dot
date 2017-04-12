@@ -18,6 +18,12 @@ function show_system {
     esac
 }
 
+function force_rm {
+    file="$HOME/$1"
+    echo "rm -rf $file"
+    rm -rf "$file"
+}
+
 function rm_link {
     file="$HOME/$1"
     if [[ -L "$file" ]]; then

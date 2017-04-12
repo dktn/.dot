@@ -18,6 +18,7 @@ export LINK_LEN=70
 
 remove_prezto_links
 
+force_rm ".zprezto"
 ln_verbose "$FULL_ZGEN_DIR/sorin-ionescu/prezto-master" "${ZDOTDIR:-$HOME}/.zprezto"
 create_symlink "prompt_sorinx_setup" "$ZPREZTO_PROMPTS_DIR"
 

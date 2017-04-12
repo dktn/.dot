@@ -9,11 +9,25 @@ source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
 if ! zgen saved; then
     echo "Creating a zgen save"
-    # ZGEN_LOADED=()
-    # ZGEN_COMPLETIONS=()
+    ZGEN_LOADED=()
+    ZGEN_COMPLETIONS=()
+    ZGEN_PREZTO_LOAD_DEFAULT=0
 
     # Prezto
     zgen prezto
+
+    # Prezto defaults
+    zgen prezto environment
+    zgen prezto terminal
+    zgen prezto editor
+    zgen prezto history
+    zgen prezto directory
+    zgen prezto spectrum
+    zgen prezto utility
+    # zgen prezto completion
+    zgen prezto prompt
+
+    # Prezto plugins
     zgen prezto '*:*' color 'yes'
     zgen prezto prompt theme 'sorinx'
     zgen prezto git
