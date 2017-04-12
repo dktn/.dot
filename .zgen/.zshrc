@@ -1,5 +1,6 @@
 # Zgen
 
+# If autocompletion is broken comment these line and 'zgen reset' once
 autoload -Uz compinit && \
    compinit -C
 
@@ -35,7 +36,7 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-completions src
 
     # Docker completion
-    zgen load srijanshetty/docker-zsh # buggy
+    zgen load srijanshetty/docker-zsh
     # zgen load felixr/docker-zsh-completion
 
     # zgen load vasyharan/zsh-brew-services
@@ -44,6 +45,13 @@ if ! zgen saved; then
 
     # Add Fish-like autosuggestions to your ZSH
     zgen load zsh-users/zsh-autosuggestions
+
+    # Adds aliases to open your current repo & branch on github.
+    zgen load peterhurford/git-it-on.zsh
+
+    zgen load adolfoabegg/browse-commit
+
+    zgen load horosgrisa/autoenv
 
     # k is a zsh script / plugin to make directory listings more readable,
     # adding a bit of color and some git status information on files and directories
