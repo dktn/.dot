@@ -38,4 +38,4 @@ esac
 [ -f ~/.zshrc.local ]    && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ]        && source ~/.fzf.zsh
 
-time |& tail -n 1 | awk '{print "Start time: " $8 "s"}'
+# time |& tail -n 1 | awk '{print "Start time: " $8 "s"}'
