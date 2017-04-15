@@ -99,7 +99,7 @@ hs.hotkey.bind(ctrlAlt, 'o',     function () hs.application.launchOrFocus("Slack
 -- hs.hotkey.bind(mash, 'g', function () hs.application.launchOrFocus("") end)
 
 -- hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("") end)
--- hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("") end)
+hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("Markdown Plus") end)
 hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Skim") end)
 hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Finder") end)
 -- hs.hotkey.bind(mash, 'd', function () hs.application.launchOrFocus("") end) -- reserved for dictionary

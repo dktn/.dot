@@ -63,6 +63,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"SublimeHaskell",
 		"Color Highlighter",
 		"Vintage"
 	],
@@ -71,14 +72,13 @@
 	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[
-		120,
 		140
 	],
 	"scroll_past_end": true,
 	"scroll_speed": 15,
 	"show_panel_on_build": false,
 	"tab_size": 4,
-	"theme": "dktn-solarized-brain.sublime-theme",
+	"theme": "DktnAdaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true
