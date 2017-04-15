@@ -32,6 +32,4 @@ zstyle ':prezto:module:prompt' theme 'sorinx'
 # zplug load --verbose
 zplug load
 
-[ -f ~/.zprezto.custom ] && source ~/.zprezto.custom
-
 [ -f ~/.zshrc.common ] && source ~/.zshrc.common

@@ -10,7 +10,7 @@ case $unamestr in
         ;;
     'Darwin')
         export ST_DIR="Library/Application Support/Sublime Text 3"
-        export LINK_LEN=120
+        export LINK_LEN=104
         ;;
     *)
         echo "Can't localize Sublime Text 3 directory"
@@ -37,6 +37,7 @@ create_symlink       "Default (Linux).sublime-keymap"          "$DOT_ST_DIR"    
 create_symlink       "Dot.sublime-snippet"                     "$DOT_ST_DIR"       "$ST_USER_DIR"
 create_symlink       "SolarizedToggle.sublime-settings"        "$DOT_ST_DIR"       "$ST_USER_DIR"
 create_symlink       "Elixir.sublime-settings"                 "$DOT_ST_DIR"       "$ST_USER_DIR"
+create_symlink       "JSON.sublime-settings"                   "$DOT_ST_DIR"       "$ST_USER_DIR"
 
 # create_symlink       "Stack.sublime-build"                     "$DOT_ST_DIR"       "$ST_USER_DIR"
 # create_symlink       "SublimeHaskell.sublime-settings"         "$DOT_ST_DIR"       "$ST_USER_DIR"

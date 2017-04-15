@@ -34,8 +34,8 @@ case "$OSTYPE" in
         ;;
 esac
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zprezto.custom ] && source ~/.zprezto.custom
+[ -f ~/.zshrc.local ]    && source ~/.zshrc.local
+[ -f ~/.fzf.zsh ]        && source ~/.fzf.zsh
 
 time |& tail -n 1 | awk '{print "Start time: " $8 "s"}'
