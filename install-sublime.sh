@@ -10,7 +10,7 @@ case $unamestr in
         ;;
     'Darwin')
         export ST_DIR="Library/Application Support/Sublime Text 3"
-        export LINK_LEN=96
+        export LINK_LEN=100
         ;;
     *)
         echo "Can't localize Sublime Text 3 directory"

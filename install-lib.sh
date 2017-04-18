@@ -57,7 +57,7 @@ function ln_verbose {
     if [ -n "$LINK_LEN" ]; then
         len=$LINK_LEN
     fi
-    printf "%14s %-*s -> %s\n" "Create symlink" $len "${tgt/$HOME/"~"}" "${src/$HOME/"~"}"
+    printf "%14s %-*s -> %s\n" "Create symlink" $len "${tgt/$HOME/~}" "${src/$HOME/~}"
     rm -f "$tgt"
     ln -s "$src" "$tgt"
 }
