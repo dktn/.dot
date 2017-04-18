@@ -9,6 +9,8 @@ alias stzl="st ~/.zshrc.local"
 alias stzc="st ~/.zshrc.common"
 alias srcz="source ~/.zshrc"
 
+alias ka="k -a"
+
 # allows echo 2*2
 setopt NO_NOMATCH
 
