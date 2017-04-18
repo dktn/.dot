@@ -6,11 +6,11 @@ unamestr=`uname`
 case $unamestr in
     'Linux')
         export ST_DIR=".config/sublime-text-3"
-        export LINK_LEN=100
+        export LINK_LEN=86
         ;;
     'Darwin')
         export ST_DIR="Library/Application Support/Sublime Text 3"
-        export LINK_LEN=104
+        export LINK_LEN=96
         ;;
     *)
         echo "Can't localize Sublime Text 3 directory"

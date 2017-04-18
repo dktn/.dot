@@ -63,8 +63,8 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"SublimeHaskell",
 		"Color Highlighter",
+		"SublimeHaskell",
 		"Vintage"
 	],
 	"line_padding_bottom": -1,
