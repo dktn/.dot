@@ -3,6 +3,6 @@
 	"color_scheme_light": "Packages/dktn-solarized-gray-theme/dktn-solarized-gray.tmTheme",
 	"enable_theme_switching": true,
 	"solarized_toggle_mode": "dark",
-	"theme_dark": "dktn-solarized-brain.sublime-theme",
-	"theme_light": "dktn-solarized-gray.sublime-theme"
+	"theme_dark": "DktnAdaptive.sublime-theme",
+	"theme_light": "DktnAdaptive.sublime-theme"
 }
