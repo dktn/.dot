@@ -65,7 +65,7 @@ if ! zgen saved; then
 
     zgen load adolfoabegg/browse-commit
 
-    zgen load horosgrisa/autoenv
+    zgen load tarrasch/zsh-autoenv
 
     # k is a zsh script / plugin to make directory listings more readable,
     # adding a bit of color and some git status information on files and directories
