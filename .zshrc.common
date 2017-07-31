@@ -4,6 +4,8 @@ export ZSH_TMUX_AUTOSTART=false
 export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_TMUX_AUTOQUIT=false
 
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 alias stz="st ~/.zshrc"
 alias stzl="st ~/.zshrc.local"
 alias stzc="st ~/.zshrc.common"
