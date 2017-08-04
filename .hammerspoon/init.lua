@@ -87,10 +87,11 @@ hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
 
 -- Launch applications
 hs.hotkey.bind(ctrlAlt, 'space', function () hs.application.launchOrFocus("iTerm") end)
-hs.hotkey.bind(ctrlAlt, 'h',     function () hs.application.launchOrFocus("Dash") end)
-hs.hotkey.bind(ctrlAlt, 'n',     function () hs.application.launchOrFocus("Sublime Text") end)
-hs.hotkey.bind(ctrlAlt, 'e',     function () hs.application.launchOrFocus("Safari") end)
-hs.hotkey.bind(ctrlAlt, 'i',     function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(ctrlAlt, 'l',     function () hs.application.launchOrFocus("Sublime Text") end)
+hs.hotkey.bind(ctrlAlt, 'u',     function () hs.application.launchOrFocus("Dash") end)
+hs.hotkey.bind(ctrlAlt, 'n',     function () hs.application.launchOrFocus("Safari") end)
+hs.hotkey.bind(ctrlAlt, 'e',     function () hs.application.launchOrFocus("Google Chrome") end)
+hs.hotkey.bind(ctrlAlt, 'i',     function () hs.application.launchOrFocus("Skim") end)
 hs.hotkey.bind(ctrlAlt, 'o',     function () hs.application.launchOrFocus("Slack") end)
 
 -- hs.hotkey.bind(mash, 'q', function () hs.application.launchOrFocus("") end)
@@ -100,7 +101,7 @@ hs.hotkey.bind(ctrlAlt, 'o',     function () hs.application.launchOrFocus("Slack
 
 hs.hotkey.bind(mash, 'a', function () hs.application.launchOrFocus("Stickies") end)
 -- hs.hotkey.bind(mash, 'r', function () hs.application.launchOrFocus("") end)
-hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Skim") end)
+-- hs.hotkey.bind(mash, 's', function () hs.application.launchOrFocus("Skim") end)
 hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Finder") end)
 -- hs.hotkey.bind(mash, 'd', function () hs.application.launchOrFocus("") end) -- reserved for dictionary
 
