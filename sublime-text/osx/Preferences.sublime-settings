@@ -20,7 +20,7 @@
 		"*.jar",
 		"*.zip"
 	],
-	"color_scheme": "Packages/dktn-solarized-brain-theme/dktn-solarized-brain.tmTheme",
+	"color_scheme": "Packages/dktn-adaptive/DktnAdaptiveBrain.tmTheme",
 	"detect_indentation": false,
 	"draw_minimap_border": false,
 	"draw_shadows": false,
