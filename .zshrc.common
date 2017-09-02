@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Standard ZSH config
 
 export ZSH_TMUX_AUTOSTART=false
@@ -12,6 +14,9 @@ alias stzc="st ~/.zshrc.common"
 alias srcz="source ~/.zshrc"
 
 alias ka="k -a"
+
+alias catp='pygmentize -g'
+alias cath='highlight -O ansi'
 
 # allows echo 2*2
 setopt NO_NOMATCH

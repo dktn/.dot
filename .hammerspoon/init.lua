@@ -43,8 +43,8 @@ hs.hotkey.bind(mashAltShift, '2', function() hs.layout.apply(dual_display) end)
 local gridMash = mashAlt
 -- local gridKeysLeft  = { 'q', 'w', 'e', 'r', 't' } -- Qwerty
 -- local gridKeysRight = { 'a', 's', 'd', 'f', 'g' } -- Qwerty
-local gridKeysLeft  = { 'q', 'w', 'f', 'p', 'g'} -- Colemak
-local gridKeysRight = { 'a', 'r', 's', 't', 'd'} -- Colemak
+local gridKeysLeft  = { 'q', 'w', 'd', 'p', 'g'} -- Colemak
+local gridKeysRight = { 'a', 'r', 's', 't', 'f'} -- Colemak
 hs.hotkey.bind(gridMash, gridKeysLeft[1], gridset(0,   0, gw05,  gh))
 hs.hotkey.bind(gridMash, gridKeysLeft[2], gridset(0,   0, gw06,  gh))
 hs.hotkey.bind(gridMash, gridKeysLeft[3], gridset(0,   0, gw07,  gh))
@@ -87,12 +87,12 @@ hs.hotkey.bind(moveMash, moveKeys[4], hs.grid.pushWindowRight)
 
 -- Launch applications
 hs.hotkey.bind(ctrlAlt, 'space', function () hs.application.launchOrFocus("iTerm") end)
-hs.hotkey.bind(ctrlAlt, 'l',     function () hs.application.launchOrFocus("Sublime Text") end)
+hs.hotkey.bind(ctrlAlt, 'l',     function () hs.application.launchOrFocus("Visual Studio Code") end)
 hs.hotkey.bind(ctrlAlt, 'u',     function () hs.application.launchOrFocus("Dash") end)
 hs.hotkey.bind(ctrlAlt, 'n',     function () hs.application.launchOrFocus("Safari") end)
 hs.hotkey.bind(ctrlAlt, 'e',     function () hs.application.launchOrFocus("Google Chrome") end)
 hs.hotkey.bind(ctrlAlt, 'i',     function () hs.application.launchOrFocus("Skim") end)
-hs.hotkey.bind(ctrlAlt, 'o',     function () hs.application.launchOrFocus("Slack") end)
+hs.hotkey.bind(ctrlAlt, 'o',     function () hs.application.launchOrFocus("Evernote") end)
 
 -- hs.hotkey.bind(mash, 'q', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, 'w', function () hs.application.launchOrFocus("") end)
@@ -117,10 +117,10 @@ hs.hotkey.bind(mash, 't', function () hs.application.launchOrFocus("Finder") end
 -- hs.hotkey.bind(mash, 'y', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, ';', function () hs.application.launchOrFocus("") end)
 
-hs.hotkey.bind(mash, 'n', function () hs.application.launchOrFocus("Markdown Plus") end)
-hs.hotkey.bind(mash, 'e', function () hs.application.launchOrFocus("Evernote") end)
-hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Twitter") end)
-hs.hotkey.bind(mash, 'o', function () hs.application.launchOrFocus("Textual 5") end)
+-- hs.hotkey.bind(mash, 'n', function () hs.application.launchOrFocus("Slack") end)
+-- hs.hotkey.bind(mash, 'e', function () hs.application.launchOrFocus("Evernote") end)
+-- hs.hotkey.bind(mash, 'i', function () hs.application.launchOrFocus("Twitter") end)
+-- hs.hotkey.bind(mash, 'o', function () hs.application.launchOrFocus("Textual 5") end)
 
 -- hs.hotkey.bind(mash, 'k', function () hs.application.launchOrFocus("") end)
 -- hs.hotkey.bind(mash, 'm', function () hs.application.launchOrFocus("") end)

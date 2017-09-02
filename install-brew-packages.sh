@@ -78,3 +78,4 @@ brew install xz
 brew install yarn
 brew install zeromq
 brew install zsh
+brew install ack
