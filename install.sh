@@ -20,6 +20,7 @@ else
     create_symlink     ".gitconfig"
     create_symlink     ".gitignore_global"
     create_symlink     ".fzf.zsh"
+    create_symlink     ".vimrc"
     create_symlink     ".ghci"
     create_symlink     ".stylish-haskell.yaml"
     create_symlink_osx ".hammerspoon"
